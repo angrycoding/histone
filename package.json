@@ -1,0 +1,10 @@
+{
+  "name": "jte",
+  "version": "0.0.4",
+  "files": ["src"],
+  "main": "src/JTE.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angrycoding/jte.git"
+  }
+}
