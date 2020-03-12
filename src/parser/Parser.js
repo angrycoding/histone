@@ -14,6 +14,7 @@ var Utils = require('../Utils'),
 	E_ILLEGAL_BREAK ='illegal break statement',
 	E_ILLEGAL_CONTINUE = 'illegal continue statement',
 	E_KEY_VALUE_MUST_DIFFER = 'key and value must differ',
+	E_MIXED_ARRAY_MAP = 'cant\'t mix array and map',
 	E_UNEXPECTED = (value) => `unexpected ${value}`,
 	E_DUPLICATE_PARAMETER = (value) => `duplicate parameter name "${value}"`,
 	E_UNTERMINATED_REGEXP = (value) => `unterminated regexp literal "${value}"`,
@@ -255,26 +256,49 @@ function getTokenizer() {
 }
 
 function arrayExpression(lex) {
+
 	var key, value,
-		counter = 0, values = {},
+		counter = 0,
+		values = {},
+		isArray = false,
+		isObject = false,
 		result = [Constants.AST_ARRAY];
+
 	do {
+
 		while (lex.nextToken(Tokens.$COMMA));
 		if (lex.testToken(Tokens.$RBRACKET)) break;
-		if (key = lex.nextToken(Tokens.$PROP, Tokens.$COLON))
-			key = key[0].value, value = startExpression(lex);
-		else if ((Utils.$isString(key = startExpression(lex)) || Utils.$isNumber(key)) && lex.nextToken(Tokens.$COLON)) {
+
+		if (key = lex.nextToken([Tokens.$PROP, Tokens.$INT], Tokens.$COLON)) {
+			key = key[0].value;
 			value = startExpression(lex);
-			if (Utils.$isString(key) && validInteger.test(key))
-				key = parseInt(key, 10);
-			if (Utils.$isNumber(key)) {
-				key = Math.floor(key);
-				if (key < counter) key = String(key);
-				else counter = key, key = String(counter++);
+		}
+
+		else if (Utils.$isString(key = startExpression(lex)) && lex.nextToken(Tokens.$COLON)) {
+			value = startExpression(lex);
+		}
+
+		else {
+			value = key;
+			key = 0;
+		}
+
+
+
+		if (key === 0) {
+			if (isObject) parserException(lex, E_MIXED_ARRAY_MAP);
+			isArray = true;
+			result.push(value, counter++);
+		} else {
+			if (isArray) parserException(lex, E_MIXED_ARRAY_MAP);
+			isObject = true;
+			if (values.hasOwnProperty(key)) {
+				result[values[key]] = value;
+			} else {
+				values[key] = result.length;
+				result.push(value, key);
 			}
-		} else value = key, key = String(counter++);
-		if (values.hasOwnProperty(key)) result[values[key]] = value;
-		else values[key] = result.length, result.push(value, key);
+		}
 	} while (lex.nextToken(Tokens.$COMMA));
 	if (!lex.nextToken(Tokens.$RBRACKET)) parserException(lex);
 	return result;

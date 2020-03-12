@@ -7,6 +7,79 @@ module.exports = [
 	(Histone, ret) => ret(Histone().render.length === 0),
 	(Histone, ret) => Histone('{{2 * 2}}').render(function() { ret(arguments.length === 2) }),
 	(Histone, ret) => Histone('{{2 * 2}}').render(function(result) { ret(result === '4') }),
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [1, 2, 3, foo: 123]}}');
+		} catch (exception) {
+			return ret(true);
+		}
+		ret(false);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [foo: 123, 1, 2, 3]}}');
+		} catch (exception) {
+			return ret(true);
+		}
+		ret(false);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [0x32: 123]}}');
+		} catch (exception) {
+			return ret(true);
+		}
+		ret(false);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [0.32: 123]}}');
+		} catch (exception) {
+			return ret(true);
+		}
+		ret(false);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [0b01: 123]}}');
+		} catch (exception) {
+			return ret(true);
+		}
+		ret(false);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return [10: 123]}}');
+		} catch (exception) {
+			return ret(false);
+		}
+		ret(true);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return ["10": 123]}}');
+		} catch (exception) {
+			return ret(false);
+		}
+		ret(true);
+	},
+
+	function(Histone, ret) {
+		try {
+			Histone('{{return ["foo": "bar"]}}');
+		} catch (exception) {
+			return ret(false);
+		}
+		ret(true);
+	},
+
 	(Histone, ret) => Histone('{{return [1, 2, 3]}}').render(function(result) { ret(result instanceof Histone.Array) }),
 	(Histone, ret) => Histone('{{return [1, 2, 3]}}').render(Histone.R_HISTONE, function(result) { ret(result instanceof Histone.Array) }),
 	(Histone, ret) => Histone('{{return [1, 2, 3]}}').render(function(result) { ret(result instanceof Histone.Array) }, Histone.R_HISTONE),
