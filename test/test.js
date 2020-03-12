@@ -117,9 +117,8 @@ getTestSuite(function(testSuitePath, ret) {
 		if (typeof testCase === 'string') {
 			message = testCase;
 			try {
-				getHistone()(testCase).render(function() {
-					var result = Array.prototype.every.call(arguments, result => !!result);
-					printResult(result);
+				getHistone()(testCase).render(function(result) {
+					printResult(!!result);
 					nextTestCase();
 				});
 			}
@@ -136,9 +135,9 @@ getTestSuite(function(testSuitePath, ret) {
 
 
 			try {
-				testCase(getHistone(), function() {
-					var result = Array.prototype.every.call(arguments, result => !!result);
-					printResult(result);
+				testCase(getHistone(), function(result) {
+					// var result = Array.prototype.every.call(arguments, result => !!result);
+					printResult(!!result);
 					nextTestCase();
 				}, histonePath);
 			}

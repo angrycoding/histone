@@ -50,7 +50,7 @@ Template.prototype.render = function() {
 		else if (type === RTTI_R_STRING)
 			result = RTTI.$toString(result);
 
-		if (ret) ret(result), ret = undefined; else ret = result;
+		if (ret) ret(result, state), ret = undefined; else ret = result;
 	});
 
 	return ret;

@@ -5,7 +5,7 @@ module.exports = [
 	(Histone, ret) => ret(typeof Histone().getAST === 'function'),
 	(Histone, ret) => ret(Histone(null, '/BASE_URI').getBaseURI() === '/BASE_URI'),
 	(Histone, ret) => ret(Histone().render.length === 0),
-	(Histone, ret) => Histone('{{2 * 2}}').render(function() { ret(arguments.length === 1) }),
+	(Histone, ret) => Histone('{{2 * 2}}').render(function() { ret(arguments.length === 2) }),
 	(Histone, ret) => Histone('{{2 * 2}}').render(function(result) { ret(result === '4') }),
 	(Histone, ret) => Histone('{{return [1, 2, 3]}}').render(function(result) { ret(result instanceof Histone.Array) }),
 	(Histone, ret) => Histone('{{return [1, 2, 3]}}').render(Histone.R_HISTONE, function(result) { ret(result instanceof Histone.Array) }),

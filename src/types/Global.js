@@ -90,29 +90,29 @@ else {
 }
 
 RTTI.$register(GlobalPrototype, 'getMin', function(self, args) {
-	var oValue, nValue, result = [];
+	var oValue, minValue = Infinity;
 	while (args.length) {
-		oValue = args.shift(), nValue = RTTI.$toNumber(oValue);
-		if (nValue !== undefined) {
-			if (!result.length || nValue < result[0]) result = [nValue, oValue];
-		} else if (oValue instanceof HistoneArray) {
+		if ((oValue = args.shift()) instanceof HistoneArray) {
 			Array.prototype.push.apply(args, oValue.getValues());
+		} else {
+			oValue = RTTI.$toNumber(oValue);
+			if (oValue !== undefined && oValue < minValue) minValue = oValue;
 		}
 	}
-	return result[1];
+	return (minValue === Infinity ? undefined : minValue);
 });
 
 RTTI.$register(GlobalPrototype, 'getMax', function(self, args) {
-	var oValue, nValue, result = [];
+	var oValue, maxValue = -Infinity;
 	while (args.length) {
-		oValue = args.shift(), nValue = RTTI.$toNumber(oValue);
-		if (nValue !== undefined) {
-			if (!result.length || nValue > result[0]) result = [nValue, oValue];
-		} else if (oValue instanceof HistoneArray) {
+		if ((oValue = args.shift()) instanceof HistoneArray) {
 			Array.prototype.push.apply(args, oValue.getValues());
+		} else {
+			oValue = RTTI.$toNumber(oValue);
+			if (oValue !== undefined && oValue > maxValue) maxValue = oValue;
 		}
 	}
-	return result[1];
+	return (maxValue === -Infinity ? undefined : maxValue);
 });
 
 RTTI.$register(GlobalPrototype, 'range', function(self, args) {
@@ -134,13 +134,17 @@ RTTI.$register(GlobalPrototype, 'range', function(self, args) {
 	return result;
 });
 
-RTTI.$register(GlobalPrototype, 'getUniqueId', getUniqueId, Constants.RTTI_V_DIRTY);
 RTTI.$register(GlobalPrototype, 'getRand', (self, args) => getRand(args[0], args[1]), Constants.RTTI_V_DIRTY);
+RTTI.$register(GlobalPrototype, 'getSafeRand', (self, args) => getRand(args[0], args[1]));
+
+RTTI.$register(GlobalPrototype, 'getUniqueId', getUniqueId, Constants.RTTI_V_DIRTY);
+RTTI.$register(GlobalPrototype, 'getSafeUniqueId', getUniqueId);
+
+
+
 RTTI.$register(GlobalPrototype, 'loadText', (self, args, scope, ret) => Network.$loadText(args[0], ret, args[1], scope));
 RTTI.$register(GlobalPrototype, 'loadJSON', (self, args, scope, ret) => Network.$loadJSON(args[0], ret, args[1], scope));
 RTTI.$register(GlobalPrototype, 'require', (self, args, scope, ret) => Network.$require(args[0], ret, args[1], scope));
-RTTI.$register(GlobalPrototype, 'getSafeUniqueId', getUniqueId);
-RTTI.$register(GlobalPrototype, 'getSafeRand', (self, args) => getRand(args[0], args[1]));
 RTTI.$register(GlobalPrototype, 'wait', function(self, args, scope, ret) {
 
 	var delay = args.shift(), callback = args.shift();
