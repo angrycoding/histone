@@ -3,7 +3,7 @@
  * version: {{this.version}}
  * template: {{this.template}}
  * language(s): {{this.languages->keys->sort(lang => lang != this.language)->join(' ') || 'no'}}
- * Copyright {{getDate.year}} MegaFon
+ * Copyright {{getDate.year}} @angrycoding
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

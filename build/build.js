@@ -154,7 +154,7 @@ getLanguages(function(languages, language) {
 
 			if (exitCode) process.exit(exitCode);
 
-			console.info(result)
+			// console.info(result)
 
 			Histone.require(formatTemplates[cmdFormat], function(result) {
 				FS.writeFile(cmdTarget, result, function() {

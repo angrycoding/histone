@@ -2,7 +2,7 @@
   "description": "Histone template engine",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MegafonWebLab/histone-javascript.git"
+    "url": "https://github.com/angrycoding/jte.git"
   },
   "dependencies": {
     "fs-extra": "1.0.0",
