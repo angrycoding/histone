@@ -7,7 +7,6 @@
   "dependencies": {
     "fs-extra": "1.0.0",
     "google-closure-compiler": "20161201.0.0",
-    "minimist": "1.2.0",
-    "regexp-lexer": "0.0.10"
+    "minimist": "1.2.0"
   }
 }
