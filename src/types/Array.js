@@ -288,56 +288,46 @@ RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
 	} else ret(filter);
 });
 
-if (Constants.EXPERIMENTAL) {
+RTTI.$register(ArrayPrototype, 'set', (self, args) => {
+	self = self.clone();
+	self.set(args[0], args[1]);
+	return self;
+});
 
-	RTTI.$register(ArrayPrototype, Constants.RTTI_M_UNEVAL, (self, args, serialize) => {
-		var result = [Constants.AST_ARRAY], keys = self.getKeys(), values = self.getValues();
-		while (keys.length) result.push(serialize(values.shift()), keys.shift());
-		return result;
-	});
+RTTI.$register(ArrayPrototype, 'toCSS', (self) => {
+	var result = '', keys = self.getKeys(), values = self.getValues();
+	while (keys.length) result += (keys.shift() + ':' + RTTI.$toString(values.shift()) + ';');
+	return result;
+});
 
-	RTTI.$register(ArrayPrototype, 'set', (self, args) => {
-		self = self.clone();
-		self.set(args[0], args[1]);
-		return self;
-	});
+RTTI.$register(ArrayPrototype, 'toAttrs', (self) => {
+	var result = [], keys = self.getKeys(), values = self.getValues();
+	while (keys.length) result.push(keys.shift() + '=' + JSON.stringify(RTTI.$toString(values.shift())));
+	return result.join(' ');
+});
 
-	RTTI.$register(ArrayPrototype, 'toCSS', (self) => {
-		var result = '', keys = self.getKeys(), values = self.getValues();
-		while (keys.length) result += (keys.shift() + ':' + RTTI.$toString(values.shift()) + ';');
-		return result;
-	});
+RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
+	var keys = self.getKeys(),
+		values = self.getValues(),
+		rIndex, cIndex = keys.length,
+		result = new HistoneArray();
+	while (cIndex) {
+		rIndex = Math.floor(Math.random() * cIndex--);
+		keys[rIndex] = [keys[cIndex], keys[cIndex] = keys[rIndex]][0];
+		values[rIndex] = [values[cIndex], values[cIndex] = values[rIndex]][0];
+	}
+	while (keys.length) result.set(values.shift(), keys.shift());
+	return result;
+}, Constants.RTTI_V_DIRTY);
 
-	RTTI.$register(ArrayPrototype, 'toAttrs', (self) => {
-		var result = [], keys = self.getKeys(), values = self.getValues();
-		while (keys.length) result.push(keys.shift() + '=' + JSON.stringify(RTTI.$toString(values.shift())));
-		return result.join(' ');
-	});
+RTTI.$register(ArrayPrototype, 'flip', (self) => {
+	var keys = self.getKeys(), values = self.getValues(), result = new HistoneArray();
+	while (keys.length) result.set(keys.shift(), values.shift());
+	return result;
+});
 
-	RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
-		var keys = self.getKeys(),
-			values = self.getValues(),
-			rIndex, cIndex = keys.length,
-			result = new HistoneArray();
-		while (cIndex) {
-			rIndex = Math.floor(Math.random() * cIndex--);
-			keys[rIndex] = [keys[cIndex], keys[cIndex] = keys[rIndex]][0];
-			values[rIndex] = [values[cIndex], values[cIndex] = values[rIndex]][0];
-		}
-		while (keys.length) result.set(values.shift(), keys.shift());
-		return result;
-	}, Constants.RTTI_V_DIRTY);
-
-	RTTI.$register(ArrayPrototype, 'flip', (self) => {
-		var keys = self.getKeys(), values = self.getValues(), result = new HistoneArray();
-		while (keys.length) result.set(keys.shift(), values.shift());
-		return result;
-	});
-
-	RTTI.$register(ArrayPrototype, 'reverse', (self, args) => {
-		var result = new HistoneArray(), values = self.getValues(), keys = self.getKeys();
-		while (values.length) result.set(values.pop(), keys.pop());
-		return result;
-	});
-
-}
+RTTI.$register(ArrayPrototype, 'reverse', (self, args) => {
+	var result = new HistoneArray(), values = self.getValues(), keys = self.getKeys();
+	while (values.length) result.set(values.pop(), keys.pop());
+	return result;
+});

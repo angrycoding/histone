@@ -8,7 +8,3 @@ RTTI.$register(NullPrototype, 'isNull', true);
 RTTI.$register(NullPrototype, 'toBoolean', false);
 RTTI.$register(NullPrototype, 'toString', 'null');
 RTTI.$register(NullPrototype, 'toJSON', 'null');
-
-if (Constants.EXPERIMENTAL) {
-	RTTI.$register(NullPrototype, Constants.RTTI_M_UNEVAL, Constants.RTTI_R_SELF);
-}

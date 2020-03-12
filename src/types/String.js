@@ -115,21 +115,15 @@ RTTI.$register(StringPrototype, 'replace', (self, args, scope, ret) => {
 	} else ret(self);
 });
 
-if (Constants.EXPERIMENTAL) {
+RTTI.$register(StringPrototype, 'eval', (self, args, scope, ret) => {
+	var thisObj = args[0], baseURI = args[1];
+	if (!Utils.$isString(baseURI)) baseURI = scope.baseURI;
+	try { self = Parser(self, baseURI); } catch (exception) {}
+	(new Processor(baseURI, thisObj, scope.shadowObj)).process(self, ret);
+});
 
-	RTTI.$register(StringPrototype, Constants.RTTI_M_UNEVAL, Constants.RTTI_R_SELF);
-
-	RTTI.$register(StringPrototype, 'eval', (self, args, scope, ret) => {
-		var thisObj = args[0], baseURI = args[1];
-		if (!Utils.$isString(baseURI)) baseURI = scope.baseURI;
-		try { self = Parser(self, baseURI); } catch (exception) {}
-		(new Processor(baseURI, thisObj, scope.shadowObj)).process(self, ret);
-	});
-
-	RTTI.$register(StringPrototype, 'reverse', (self) => {
-		var result = '', index = self.length;
-		while (index--) result += self[index];
-		return result;
-	});
-
-}
+RTTI.$register(StringPrototype, 'reverse', (self) => {
+	var result = '', index = self.length;
+	while (index--) result += self[index];
+	return result;
+});

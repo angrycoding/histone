@@ -139,66 +139,42 @@ RTTI.$register(GlobalPrototype, 'getRand', (self, args) => getRand(args[0], args
 RTTI.$register(GlobalPrototype, 'loadText', (self, args, scope, ret) => Network.$loadText(args[0], ret, args[1], scope));
 RTTI.$register(GlobalPrototype, 'loadJSON', (self, args, scope, ret) => Network.$loadJSON(args[0], ret, args[1], scope));
 RTTI.$register(GlobalPrototype, 'require', (self, args, scope, ret) => Network.$require(args[0], ret, args[1], scope));
+RTTI.$register(GlobalPrototype, 'getSafeUniqueId', getUniqueId);
+RTTI.$register(GlobalPrototype, 'getSafeRand', (self, args) => getRand(args[0], args[1]));
+RTTI.$register(GlobalPrototype, 'wait', function(self, args, scope, ret) {
 
-if (Constants.EXPERIMENTAL) {
+	var delay = args.shift(), callback = args.shift();
 
-	RTTI.$register(GlobalPrototype, Constants.RTTI_M_UNEVAL, [Constants.AST_GLOBAL], Constants.RTTI_R_JS);
-	RTTI.$register(GlobalPrototype, 'getSafeUniqueId', getUniqueId);
-	RTTI.$register(GlobalPrototype, 'getSafeRand', (self, args) => getRand(args[0], args[1]));
-	RTTI.$register(GlobalPrototype, 'wait', function(self, args, scope, ret) {
+	if (!(callback instanceof HistoneMacro)) {
+		callback = new HistoneMacro([], callback, scope);
+	}
 
-		var delay = args.shift(), callback = args.shift();
-
-		if (!(callback instanceof HistoneMacro)) {
-			callback = new HistoneMacro([], callback, scope);
-		}
-
-		if (delay instanceof HistoneMacro) {
-			var resultState = Constants.RTTI_V_CLEAN;
-			Utils.$for(function(iterator) {
-				delay.call([], scope, function(value, state) {
-					resultState |= state;
-					if (!RTTI.$toBoolean(value)) iterator();
-					else callback.call(args, scope, function(value, state) {
-						ret(value, resultState | state);
-					}, {
-						'condition': value,
-						'iteration': iterator.iteration
-					});
+	if (delay instanceof HistoneMacro) {
+		var resultState = Constants.RTTI_V_CLEAN;
+		Utils.$for(function(iterator) {
+			delay.call([], scope, function(value, state) {
+				resultState |= state;
+				if (!RTTI.$toBoolean(value)) iterator();
+				else callback.call(args, scope, function(value, state) {
+					ret(value, resultState | state);
+				}, {
+					'condition': value,
+					'iteration': iterator.iteration
 				});
 			});
-		}
+		});
+	}
 
-		else {
+	else {
 
-			delay = RTTI.$toInt(delay, 0);
+		delay = RTTI.$toInt(delay, 0);
 
-			if (delay === undefined || delay < 0)
-				callback.call(args, scope, ret);
+		if (delay === undefined || delay < 0)
+			callback.call(args, scope, ret);
 
-			else setTimeout(function() {
-				callback.call(args, scope, ret);
-			}, delay);
+		else setTimeout(function() {
+			callback.call(args, scope, ret);
+		}, delay);
 
-		}
-	});
-
-} else {
-
-	RTTI.$register(GlobalPrototype, 'eval', function(self, args, scope, ret) {
-		var template = args[0], thisObj = args[1], baseURI = args[2];
-		if (!Utils.$isString(template)) ret(); else {
-			if (!Utils.$isString(baseURI)) baseURI = scope.baseURI;
-			try { template = Parser(template, baseURI); } catch (exception) {}
-			(new Processor(baseURI, thisObj, scope.shadowObj)).process(template, ret);
-		}
-	});
-
-	RTTI.$register(GlobalPrototype, 'wait', function(self, args, scope, ret) {
-		var delayMS = RTTI.$toInt(args.shift(), 0), callback = args.shift();
-		if (!(callback instanceof HistoneMacro)) callback = new HistoneMacro([], callback, scope);
-		if (delayMS === undefined) callback.call(args, scope, ret);
-		else setTimeout(function() { callback.call(args, scope, ret); }, delayMS);
-	});
-
-}
+	}
+});

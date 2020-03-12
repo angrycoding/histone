@@ -51,8 +51,6 @@ Histone.M_GET = Constants.RTTI_M_GET;
 Histone.M_CALL = Constants.RTTI_M_CALL;
 /** @expose */
 Histone.M_TOJS = Constants.RTTI_M_TOJS;
-/** @expose */
-Histone.M_UNEVAL = Constants.RTTI_M_UNEVAL;
 
 /** @expose */
 Histone.V_CLEAN = Constants.RTTI_V_CLEAN;

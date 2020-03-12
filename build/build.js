@@ -38,7 +38,6 @@ var FS = require('fs-extra'),
 	cmdDefaultLang = getStringArgument('defaultLang'),
 	cmdLanguages = [].concat(commandLine.lang || []),
 	cmdExcludeParser = getBooleanArgument('exclude-parser'),
-	cmdExperimentalFeatures = getBooleanArgument('experimental'),
 	cmdTarget = Path.resolve(process.cwd(), getStringArgument('target') || resolve('../Histone.js')),
 	cmdFormat = getStringArgument('format'),
 	cmdFormat = formatTemplates.hasOwnProperty(cmdFormat) ? cmdFormat : 'commonjs',
@@ -173,7 +172,6 @@ getLanguages(function(languages, language) {
 	}, {
 		VERSION: HistoneVersion,
 		HAS_PARSER: !cmdExcludeParser,
-		EXPERIMENTAL: cmdExperimentalFeatures,
 		LANGUAGES: languages,
 		LANGUAGE: language
 	});

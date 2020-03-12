@@ -45,7 +45,3 @@ RTTI.$register(NumberPrototype, 'toString', (self) => {
 	while (exponent--) result += '0';
 	return numeric + result;
 });
-
-if (Constants.EXPERIMENTAL) {
-	RTTI.$register(NumberPrototype, Constants.RTTI_M_UNEVAL, Constants.RTTI_R_SELF);
-}

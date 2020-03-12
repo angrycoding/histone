@@ -10,7 +10,3 @@ RTTI.$register(BooleanPrototype, 'toBoolean', Constants.RTTI_R_SELF);
 RTTI.$register(BooleanPrototype, 'toNumber', (self) => self ? 1 : 0);
 RTTI.$register(BooleanPrototype, 'toString', (self) => self ? 'true' : 'false');
 RTTI.$register(BooleanPrototype, 'toJSON', (self) => self ? 'true' : 'false');
-
-if (Constants.EXPERIMENTAL) {
-	RTTI.$register(BooleanPrototype, Constants.RTTI_M_UNEVAL, Constants.RTTI_R_SELF);
-}

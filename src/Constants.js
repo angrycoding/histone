@@ -11,7 +11,6 @@ RTTI_R_STRING.prototype = Object.create(RTTI_R.prototype);
 module.exports = {
 
 	VERSION: /*{{if true}}*//*{{this.VERSION->toJSON}}*//*{{else}}*/'dev'/*{{/if}}*/,
-	EXPERIMENTAL: /*{{if true}}*//*{{this.EXPERIMENTAL->toJSON}}*//*{{else}}*/true/*{{/if}}*/,
 	HAS_PARSER: /*{{if true}}*//*{{this.HAS_PARSER->toJSON}}*//*{{else}}*/true/*{{/if}}*/,
 	LANGUAGE: /*{{if true}}*//*{{this.LANGUAGE->toJSON}}*//*{{else}}*/'ru'/*{{/if}}*/,
 	LANGUAGES: /*{{if true}}*//*{{this.LANGUAGES->toJSON}}*//*{{else}}*/{
@@ -69,7 +68,6 @@ module.exports = {
 	RTTI_M_GET: 0,
 	RTTI_M_CALL: 1,
 	RTTI_M_TOJS: 2,
-	RTTI_M_UNEVAL: 3,
 
 	RTTI_V_CLEAN: 0,
 	RTTI_V_DIRTY: 1,
