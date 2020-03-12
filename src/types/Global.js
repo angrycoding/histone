@@ -134,9 +134,9 @@ RTTI.$register(GlobalPrototype, 'range', function(self, args) {
 	return result;
 });
 
+
 RTTI.$register(GlobalPrototype, 'getRand', (self, args) => getRand(args[0], args[1]), Constants.RTTI_V_DIRTY);
 RTTI.$register(GlobalPrototype, 'getSafeRand', (self, args) => getRand(args[0], args[1]));
-
 RTTI.$register(GlobalPrototype, 'getUniqueId', getUniqueId, Constants.RTTI_V_DIRTY);
 RTTI.$register(GlobalPrototype, 'getSafeUniqueId', getUniqueId);
 

@@ -288,7 +288,11 @@ RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
 	} else ret(filter);
 });
 
+
+
+
 RTTI.$register(ArrayPrototype, 'set', (self, args) => {
+	if (!args.length) return self;
 	self = self.clone();
 	self.set(args[0], args[1]);
 	return self;
@@ -307,18 +311,26 @@ RTTI.$register(ArrayPrototype, 'toAttrs', (self) => {
 });
 
 RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
+
 	var keys = self.getKeys(),
 		values = self.getValues(),
 		rIndex, cIndex = keys.length,
-		result = new HistoneArray();
+		result = new HistoneArray(),
+		preserveKeys = !self.isArray();
+
 	while (cIndex) {
 		rIndex = Math.floor(Math.random() * cIndex--);
 		keys[rIndex] = [keys[cIndex], keys[cIndex] = keys[rIndex]][0];
 		values[rIndex] = [values[cIndex], values[cIndex] = values[rIndex]][0];
 	}
-	while (keys.length) result.set(values.shift(), keys.shift());
+
+	while (values.length) {
+		result.set(values.shift(), preserveKeys ? keys.shift() : undefined);
+	}
+
 	return result;
 }, Constants.RTTI_V_DIRTY);
+
 
 RTTI.$register(ArrayPrototype, 'flip', (self) => {
 	var keys = self.getKeys(), values = self.getValues(), result = new HistoneArray();
@@ -327,7 +339,17 @@ RTTI.$register(ArrayPrototype, 'flip', (self) => {
 });
 
 RTTI.$register(ArrayPrototype, 'reverse', (self, args) => {
-	var result = new HistoneArray(), values = self.getValues(), keys = self.getKeys();
-	while (values.length) result.set(values.pop(), keys.pop());
+	
+	var result = new HistoneArray(),
+		keys = self.getKeys(),
+		values = self.getValues(),
+		preserveKeys = !self.isArray();
+
+	while (values.length) result.set(
+		values.pop(),
+		preserveKeys ? keys.pop() : undefined
+	);
+
+
 	return result;
 });
