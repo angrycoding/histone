@@ -5,7 +5,52 @@ var RTTI = require('../RTTI'),
 	Constants = require('../Constants'),
 	HistoneMacro = RTTI.$Macro,
 	BasePrototype = RTTI.$Base.prototype,
-	StringPrototype = RTTI.$String.prototype;
+	StringPrototype = RTTI.$String.prototype,
+	DO_BOTH = 0, DO_START = -1, DO_END = 1;
+
+function stripTrim(self, args, direction) {
+	var arg, chars = '', start = -1, length = self.length;
+	while (args.length) if (Utils.$isString(arg = args.shift())) chars += arg;
+	if (chars.length === 0) chars = ' \n\r\t';
+
+	if (direction === DO_BOTH || direction === DO_START) {
+		while (start < length && chars.indexOf(self.charAt(++start)) !== -1){}
+	} else start = 0;
+
+	if (direction === DO_BOTH || direction === DO_END) {
+		while (length >= 0 && chars.indexOf(self.charAt(--length)) !== -1){}
+	}
+
+	return self.slice(start, length + 1);
+}
+
+function includesContains(self, args) {
+	if (!args.length) return false;
+	var fragment = RTTI.$toString(args[0]),
+		start = (args.length >= 2 ? RTTI.$toInt(args[1]) : 0);
+	if (start === undefined) return false;
+	return self.slice(start).includes(fragment);
+}
+
+function padStartEnd(self, args, direction) {
+	var targetLength = RTTI.$toInt(args[0]);
+	if (targetLength === undefined || targetLength <= self.length) return self;
+	var padString = (args.length >= 2 ? RTTI.$toString(args[1]) : ' ');
+	return direction === DO_START ? self.padStart(targetLength, padString) : self.padEnd(targetLength, padString);
+}
+
+function indexOfLastIndexOf(self, args, direction) {
+	if (!args.length) return -1;
+	var callArgs = [RTTI.$toString(args[0])];
+	var start = RTTI.$toInt(args[1]);
+	if (start === undefined && args.length >= 2) return -1;
+	if (args.length >= 2) callArgs.push(start);
+	return (
+		direction === DO_START ?
+		String.prototype.indexOf.apply(self, callArgs) :
+		String.prototype.lastIndexOf.apply(self, callArgs)
+	);
+}
 
 RTTI.$register(BasePrototype, 'isString', false);
 RTTI.$register(BasePrototype, 'toString', '');
@@ -51,14 +96,12 @@ RTTI.$register(StringPrototype, 'charCodeAt', (self, args) => {
 	}
 });
 
-RTTI.$register(StringPrototype, 'strip', (self, args) => {
-	var arg, chars = '', start = -1, length = self.length;
-	while (args.length) if (Utils.$isString(arg = args.shift())) chars += arg;
-	if (chars.length === 0) chars = ' \n\r\t';
-	while (start < length && chars.indexOf(self.charAt(++start)) !== -1){}
-	while (length >= 0 && chars.indexOf(self.charAt(--length)) !== -1){}
-	return self.slice(start, length + 1);
-});
+RTTI.$register(StringPrototype, 'strip', (self, args) => stripTrim(self, args, DO_BOTH));
+RTTI.$register(StringPrototype, 'trim', (self, args) => stripTrim(self, args, DO_BOTH));
+RTTI.$register(StringPrototype, 'stripStart', (self, args) => stripTrim(self, args, DO_START));
+RTTI.$register(StringPrototype, 'trimStart', (self, args) => stripTrim(self, args, DO_START));
+RTTI.$register(StringPrototype, 'stripEnd', (self, args) => stripTrim(self, args, DO_END));
+RTTI.$register(StringPrototype, 'trimEnd', (self, args) => stripTrim(self, args, DO_END));
 
 RTTI.$register(StringPrototype, 'slice', (self, args) => {
 	var strlen = self.length,
@@ -127,3 +170,28 @@ RTTI.$register(StringPrototype, 'reverse', (self) => {
 	while (index--) result += self[index];
 	return result;
 });
+
+RTTI.$register(StringPrototype, 'startsWith', (self, args) => {
+	if (!args.length) return false;
+	return self.startsWith(RTTI.$toString(args[0]));
+});
+
+RTTI.$register(StringPrototype, 'endsWith', (self, args) => {
+	if (!args.length) return false;
+	return self.endsWith(RTTI.$toString(args[0]));
+});
+
+RTTI.$register(StringPrototype, 'includes', includesContains);
+RTTI.$register(StringPrototype, 'contains', includesContains);
+
+RTTI.$register(StringPrototype, 'repeat', (self, args) => {
+	var times = RTTI.$toInt(args[0]);
+	if (times === undefined || times <= 1) return self;
+	return self.repeat(times);
+});
+
+RTTI.$register(StringPrototype, 'padStart', (self, args) => padStartEnd(self, args, DO_START));
+RTTI.$register(StringPrototype, 'padEnd', (self, args) => padStartEnd(self, args, DO_END));
+
+RTTI.$register(StringPrototype, 'indexOf', (self, args) => indexOfLastIndexOf(self, args, DO_START));
+RTTI.$register(StringPrototype, 'lastIndexOf', (self, args) => indexOfLastIndexOf(self, args, DO_END));
