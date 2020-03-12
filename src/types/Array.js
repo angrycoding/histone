@@ -117,12 +117,17 @@ RTTI.$register(ArrayPrototype, 'slice', (self, args) => {
 });
 
 RTTI.$register(ArrayPrototype, 'chunk', (self, args) => {
-	var result = [], size = RTTI.$toInt(args[0], 1),
-		values = self.getValues(), keys = self.getKeys();
+	
+	var result = [],
+		size = RTTI.$toInt(args[0], 1),
+		values = self.getValues(),
+		keys = self.getKeys(),
+		preserveKeys = !self.isArray();
+
 	if (size === undefined) size = 1;
 	for (var chunk, c = 0; c < values.length; c++) {
 		if (c % size === 0) result.push(chunk = new HistoneArray);
-		chunk.set(values[c], keys[c]);
+		chunk.set(values[c], preserveKeys ? keys[c] : undefined);
 	}
 	return result;
 });
