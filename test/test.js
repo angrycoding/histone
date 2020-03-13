@@ -10,6 +10,7 @@ var FS = require('fs'),
 	);
 
 var message, exitCode = 0;
+var counter = 0;
 
 function getHistone() {
 	var cache = require.cache;
@@ -114,6 +115,8 @@ getTestSuite(function(testSuitePath, ret) {
 	// if (!(testSuite instanceof Array)) nextTestSuite();
 	asyncForEach(testSuite, function(testCase, nextTestCase) {
 
+		counter++;
+
 		if (typeof testCase === 'string') {
 			message = testCase;
 			try {
@@ -156,5 +159,7 @@ getTestSuite(function(testSuitePath, ret) {
 
 
 }, function() {
+	console.info('--------------------------------------------------------');
+	console.info('counter =', counter);
 	process.exit(exitCode);
 });
