@@ -1,5 +1,4 @@
 var RTTI = require('../RTTI'),
-	Constants = require('../Constants'),
 	BasePrototype = RTTI.$Base.prototype,
 	RegExpPrototype = RTTI.$RegExp.prototype;
 
