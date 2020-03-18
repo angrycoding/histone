@@ -1,0 +1,17 @@
+module.exports = [
+	'{{return []->some->toString = "false"}}',
+	'{{return []->some()->toString = "false"}}',
+	'{{return [1, 2, 3, 4, 5]->some->toString = "false"}}',
+	'{{return [1, 2, 3, 4, 5]->some()->toString = "false"}}',
+	'{{return [1, 2, 3, 4, 5]->some(element => element % 2 = 0)->toString = "true"}}',
+	'{{return [2, 5, 8, 1, 4]->some(element => element > 10)->toString = "false"}}',
+	'{{return [12, 5, 8, 1, 4]->some(element => element > 10)->toString = "true"}}',
+	`{{return ['apple', 'banana', 'mango', 'guava']->some(element => element = 'kela')->toString = "false"}}`,
+	`{{return ['apple', 'banana', 'mango', 'guava']->some(element => element = 'banana')->toString = "true"}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4]->some((element, index, array) => index > 6)->toString = "false"}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4, 11]->some((element, index, array) => index > 6)->toString = "true"}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4, 11]->some(=> self.arguments->length = 3)->toString = 'true'}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4, 11]->some(=> self.arguments->length = 4, 1)->toString = 'true'}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4, 11]->some(=> self.arguments->length = 5, 1, 2)->toString = 'true'}}`,
+	`{{return [0, 0, 0, 1, 2, 3, 4, 11]->some((a, b, c, d) => a = 1 && b = 2, 1, 2)->toString = 'true'}}`,
+];
