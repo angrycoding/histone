@@ -6,18 +6,6 @@ var RTTI = require('../RTTI'),
 	BasePrototype = RTTI.$Base.prototype,
 	ArrayPrototype = HistoneArray.prototype;
 
-function htmlentities(array) {
-	var keys = array.getKeys(), result = new HistoneArray();
-	array.getValues().forEach(function(value, index) {
-		if (Utils.$isString(value))
-			value = Utils.$htmlentities(value);
-		else if (value instanceof HistoneArray)
-			value = htmlentities(value);
-		result.set(value, keys[index]);
-	});
-	return result;
-}
-
 function mergeSort(arr, sorter, ret) {
 	var length = arr.length;
 	if (length < 2) return ret(arr);
@@ -62,7 +50,6 @@ RTTI.$register(ArrayPrototype, 'keys', (self) => self.getKeys());
 RTTI.$register(ArrayPrototype, 'values', (self) => self.getValues());
 RTTI.$register(ArrayPrototype, 'first', (self) => self.getFirst());
 RTTI.$register(ArrayPrototype, 'last', (self) => self.getLast());
-RTTI.$register(ArrayPrototype, 'htmlentities', (self) => htmlentities(self));
 RTTI.$register(ArrayPrototype, 'has', (self, args) => self.has(RTTI.$toString(args[0])));
 
 RTTI.$register(ArrayPrototype, 'toString', (self) => {
@@ -90,15 +77,137 @@ RTTI.$register(ArrayPrototype, 'toJSON', (self) => {
 	}).join(',') + '}';
 });
 
+RTTI.$register(ArrayPrototype, 'join', (self, args) => {
+	var result = [], values = self.getValues(), separator = '';
+	if (args.length > 0) separator = RTTI.$toString(args[0]);
+	while (values.length) result.push(RTTI.$toString(values.shift()));
+	return result.join(separator);
+});
+
+RTTI.$register(ArrayPrototype, 'chunk', (self, args) => {
+	
+	var result = [],
+		size = RTTI.$toInt(args[0], 1),
+		values = self.getValues(),
+		keys = self.isArray() ? [] : self.getKeys();
+
+	if (size === undefined) size = 1;
+	for (var chunk, c = 0; c < values.length; c++) {
+		if (c % size === 0) result.push(chunk = new HistoneArray);
+		chunk.set(values[c], keys[c]);
+	}
+	return result;
+});
+
+RTTI.$register(ArrayPrototype, 'some', (self, args, scope, ret) => {
+	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret(false, resultState);
+	self.some((value, ret, key) => {
+		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
+		filter.call(args.concat(value, key, self), scope, processItem);
+	}, (result) => ret(result, resultState));
+});
+
+RTTI.$register(ArrayPrototype, 'every', (self, args, scope, ret) => {
+	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret(false, resultState);
+	self.every((value, ret, key) => {
+		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
+		filter.call(args.concat(value, key, self), scope, processItem);
+	}, (result) => ret(result, resultState));
+});
+
+RTTI.$register(ArrayPrototype, 'filter', (self, args, scope, ret) => {
+	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret([], resultState);
+	self.filter((value, ret, key) => {
+		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
+		filter.call(args.concat(value, key, self), scope, processItem);
+	}, (result) => ret(result, resultState));
+});
+
+RTTI.$register(ArrayPrototype, 'map', (self, args, scope, ret) => {
+	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret(new Array(self.getLength()).fill(undefined));
+	self.map((value, ret, key) => {
+		if (!processItem) processItem = (value, state) => (resultState |= state, ret(value));
+		filter.call(args.concat(value, key, self), scope, processItem);
+	}, (result) => ret(result, resultState));
+});
+
+RTTI.$register(ArrayPrototype, 'group', (self, args, scope, ret) => {
+	var filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret(self, resultState);
+
+	var processItem, result = new HistoneArray(),
+		keys = self.getKeys(), values = self.getValues();
+
+	Utils.$for(function(iterator, iteration) {
+
+		if (!iterator) return ret(result, resultState);
+
+		filter.call(
+			args.concat(values[iteration], keys[iteration], self),
+			scope, processItem || (processItem = function(value, state) {
+				
+				(
+					result.has(value = RTTI.$toString(value)) ?
+					result.get(value) :
+					result.set(new HistoneArray(), value)
+				).set(values[iterator.iteration]);
+
+				resultState |= state;
+				iterator();
+
+			})
+		);
+
+	}, 0, values.length - 1);
+});
+
+RTTI.$register(ArrayPrototype, 'find', (self, args, scope, ret) => {
+
+	var filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
+	if (!(filter instanceof HistoneMacro)) return ret(undefined, resultState);
+
+	var processItem,
+		keys = self.getKeys(),
+		values = self.getValues(),
+		returnKey = RTTI.$toBoolean(args.shift());
+
+	Utils.$for(function(iterator, iteration) {
+
+		if (!iterator) return ret(undefined, resultState);
+
+		filter.call(
+			args.concat(values[iteration], keys[iteration], self),
+			scope, processItem || (processItem = function(value, state) {
+				resultState |= state;
+				RTTI.$toBoolean(value) ?
+				ret((returnKey ? keys : values)[iterator.iteration], resultState) :
+				iterator();
+			})
+		);
+
+	}, 0, keys.length - 1);
+});
+
+
+
+
+
+
+
+
+
 RTTI.$register(ArrayPrototype, 'slice', (self, args) => {
 
 	var offset = RTTI.$toInt(args[0]),
 		length = RTTI.$toInt(args[1]),
-		keys = RTTI.$toBoolean(args[2]),
 		result = new HistoneArray(),
 		values = self.getValues(),
 		arrLen = values.length,
-		keys = keys ? [] : self.getKeys();
+		keys = self.isArray() ? [] : self.getKeys();
 
 	if (offset === undefined) offset = 0;
 	if (offset < 0) offset = arrLen + offset;
@@ -116,64 +225,10 @@ RTTI.$register(ArrayPrototype, 'slice', (self, args) => {
 	return result;
 });
 
-RTTI.$register(ArrayPrototype, 'chunk', (self, args) => {
-	
-	var result = [],
-		size = RTTI.$toInt(args[0], 1),
-		values = self.getValues(),
-		keys = self.getKeys(),
-		preserveKeys = !self.isArray();
 
-	if (size === undefined) size = 1;
-	for (var chunk, c = 0; c < values.length; c++) {
-		if (c % size === 0) result.push(chunk = new HistoneArray);
-		chunk.set(values[c], preserveKeys ? keys[c] : undefined);
-	}
-	return result;
-});
 
-RTTI.$register(ArrayPrototype, 'join', (self, args) => {
-	var result = [], values = self.getValues(), separator = '';
-	if (args.length > 0) separator = RTTI.$toString(args[0]);
-	while (values.length) result.push(RTTI.$toString(values.shift()));
-	return result.join(separator);
-});
 
-RTTI.$register(ArrayPrototype, 'some', (self, args, scope, ret) => {
-	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
-	if (!(filter instanceof HistoneMacro)) filter = new HistoneMacro([], filter, scope);
-	self.some((value, ret, key) => {
-		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
-		filter.call(args.concat(value, key, self), scope, processItem);
-	}, (result) => ret(result, resultState));
-});
 
-RTTI.$register(ArrayPrototype, 'every', (self, args, scope, ret) => {
-	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
-	if (!(filter instanceof HistoneMacro)) filter = new HistoneMacro([], filter, scope);
-	self.every((value, ret, key) => {
-		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
-		filter.call(args.concat(value, key, self), scope, processItem);
-	}, (result) => ret(result, resultState));
-});
-
-RTTI.$register(ArrayPrototype, 'filter', (self, args, scope, ret) => {
-	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
-	if (!(filter instanceof HistoneMacro)) filter = new HistoneMacro([], filter, scope);
-	self.filter((value, ret, key) => {
-		if (!processItem) processItem = (value, state) => (resultState |= state, ret(RTTI.$toBoolean(value)));
-		filter.call(args.concat(value, key, self), scope, processItem);
-	}, (result) => ret(result, resultState));
-});
-
-RTTI.$register(ArrayPrototype, 'map', (self, args, scope, ret) => {
-	var processItem, filter = args.shift(), resultState = Constants.RTTI_V_CLEAN;
-	if (!(filter instanceof HistoneMacro)) filter = new HistoneMacro([], filter, scope);
-	self.map((value, ret, key) => {
-		if (!processItem) processItem = (value, state) => (resultState |= state, ret(value));
-		filter.call(args.concat(value, key, self), scope, processItem);
-	}, (result) => ret(result, resultState));
-});
 
 RTTI.$register(ArrayPrototype, 'sort', (self, args, scope, ret) => {
 
@@ -216,57 +271,6 @@ RTTI.$register(ArrayPrototype, 'sort', (self, args, scope, ret) => {
 	});
 });
 
-RTTI.$register(ArrayPrototype, 'group', (self, args, scope, ret) => {
-
-	var result = new HistoneArray(),
-		filter = args.shift(),
-		keys = self.getKeys(),
-		values = self.getValues();
-
-	if (!(filter instanceof HistoneMacro))
-		filter = new HistoneMacro([], filter, scope);
-
-	var processItem, resultState = Constants.RTTI_V_CLEAN;
-	Utils.$for(function(iterator, iteration) {
-		iterator ? filter.call(
-			args.concat(values[iteration], keys[iteration], self),
-			scope, processItem || (processItem = function(value, state) {
-				(
-					result.has(value = RTTI.$toString(value)) ?
-					result.get(value) :
-					result.set(new HistoneArray(), value)
-				).set(values[iterator.iteration]);
-				resultState |= state, iterator();
-			})
-		) : ret(result, resultState);
-	}, 0, values.length - 1);
-});
-
-RTTI.$register(ArrayPrototype, 'find', (self, args, scope, ret) => {
-
-	var processItem,
-		filter = args.shift(),
-		keys = self.getKeys(),
-		values = self.getValues(),
-		resultState = Constants.RTTI_V_CLEAN,
-		returnKey = RTTI.$toBoolean(args.shift());
-
-	if (!(filter instanceof HistoneMacro)) {
-		filter = new HistoneMacro([], filter, scope);
-	}
-
-	Utils.$for(function(iterator, iteration) {
-		iterator ? filter.call(
-			args.concat(values[iteration], keys[iteration], self),
-			scope, processItem || (processItem = function(value, state) {
-				resultState |= state;
-				RTTI.$toBoolean(value) ?
-				ret((returnKey ? keys : values)[iterator.iteration], resultState) :
-				iterator();
-			})
-		) : ret(undefined, resultState);
-	}, 0, keys.length - 1);
-});
 
 RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
 	var filter = args.shift();
@@ -303,25 +307,13 @@ RTTI.$register(ArrayPrototype, 'set', (self, args) => {
 	return self;
 });
 
-RTTI.$register(ArrayPrototype, 'toCSS', (self) => {
-	var result = '', keys = self.getKeys(), values = self.getValues();
-	while (keys.length) result += (keys.shift() + ':' + RTTI.$toString(values.shift()) + ';');
-	return result;
-});
-
-RTTI.$register(ArrayPrototype, 'toAttrs', (self) => {
-	var result = [], keys = self.getKeys(), values = self.getValues();
-	while (keys.length) result.push(keys.shift() + '=' + JSON.stringify(RTTI.$toString(values.shift())));
-	return result.join(' ');
-});
-
 RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
 
 	var keys = self.getKeys(),
 		values = self.getValues(),
 		rIndex, cIndex = keys.length,
 		result = new HistoneArray(),
-		preserveKeys = !self.isArray();
+		isArray = self.isArray();
 
 	while (cIndex) {
 		rIndex = Math.floor(Math.random() * cIndex--);
@@ -329,13 +321,10 @@ RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
 		values[rIndex] = [values[cIndex], values[cIndex] = values[rIndex]][0];
 	}
 
-	while (values.length) {
-		result.set(values.shift(), preserveKeys ? keys.shift() : undefined);
-	}
+	while (values.length) result.set(values.shift(), isArray ? undefined : keys.shift());
 
 	return result;
 }, Constants.RTTI_V_DIRTY);
-
 
 RTTI.$register(ArrayPrototype, 'flip', (self) => {
 	var keys = self.getKeys(), values = self.getValues(), result = new HistoneArray();
@@ -344,17 +333,8 @@ RTTI.$register(ArrayPrototype, 'flip', (self) => {
 });
 
 RTTI.$register(ArrayPrototype, 'reverse', (self, args) => {
-	
-	var result = new HistoneArray(),
-		keys = self.getKeys(),
-		values = self.getValues(),
-		preserveKeys = !self.isArray();
-
-	while (values.length) result.set(
-		values.pop(),
-		preserveKeys ? keys.pop() : undefined
-	);
-
-
+	var isArray = self.isArray(), keys = self.getKeys(),
+		values = self.getValues(), result = new HistoneArray();
+	while (values.length) result.set(values.pop(), isArray ? undefined : keys.pop());
 	return result;
 });

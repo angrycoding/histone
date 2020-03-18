@@ -6,7 +6,6 @@ module.exports = [
 		{{var result = range(5)->shuffle->toJSON}}
 		{{return result->startsWith('[') && result->endsWith(']')}}
 	`,
-	`{{return [foo:1,bar:2,baz:3]->shuffle->isUndefined->toString = 'true'}}`,
 	(Histone, ret) => {
 		Histone('{{return [range(200), range(200)->shuffle]}}').render(function(result, state) {
 			if (!(result instanceof Array) || result.length !== 2) return ret(false);

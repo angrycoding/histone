@@ -198,12 +198,20 @@ function toHistone(value) {
 	if (registry.has(type)) return value;
 
 	if (value instanceof Date) return new HistoneDate(value);
+
+
 	var key, result = new HistoneArray();
+
+
+
 	if (Utils.$isArray(value)) {
 		for (key = 0; key < value.length; key++) {
 			result.set(toHistone(value[key]));
 		}
-	} else for (key in value) {
+	}
+
+
+	else for (key in value) {
 		if (!value.hasOwnProperty(key)) continue;
 		result.set(toHistone(value[key]), key);
 	}

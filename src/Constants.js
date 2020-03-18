@@ -64,6 +64,7 @@ module.exports = {
 	AST_WHILE: 39,
 	AST_APPLY: 40,
 	AST_TREE: 41,
+	AST_OBJECT: 42,
 
 	RTTI_M_GET: 0,
 	RTTI_M_CALL: 1,

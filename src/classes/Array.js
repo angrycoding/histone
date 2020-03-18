@@ -35,16 +35,19 @@ HistoneArray.prototype.filter = function(retn, retf) {
 	var key, value, processItem,
 		keys = this.getKeys(),
 		values = this.getValues(),
+		isArray = this.isArray(),
 		result = new HistoneArray();
 
 	Utils.$for((next, index) => {
-		if (next) {
-			key = keys[index];
-			value = values[index];
-			if (!processItem) processItem = (include) => (include && result.set(value, key), next());
-			retn(value, processItem, key, this);
-		} else retf(result);
+		if (!next) return retf(result);
+		key = keys[index], value = values[index];
+		if (!processItem) processItem = function(include) {
+			if (include) result.set(value, isArray ? undefined : key);
+			next();
+		};
+		retn(value, processItem, key, this);
 	}, 0, values.length - 1);
+
 };
 
 /** @expose */

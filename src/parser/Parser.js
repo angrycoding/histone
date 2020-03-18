@@ -260,9 +260,7 @@ function arrayExpression(lex) {
 	var key, value,
 		counter = 0,
 		values = {},
-		isArray = false,
-		isObject = false,
-		result = [Constants.AST_ARRAY];
+		result = [];
 
 	do {
 
@@ -286,12 +284,12 @@ function arrayExpression(lex) {
 
 
 		if (key === 0) {
-			if (isObject) parserException(lex, E_MIXED_ARRAY_MAP);
-			isArray = true;
-			result.push(value, counter++);
+			if (result[0] === Constants.AST_OBJECT) parserException(lex, E_MIXED_ARRAY_MAP);
+			result[0] = Constants.AST_ARRAY;
+			result.push(value);
 		} else {
-			if (isArray) parserException(lex, E_MIXED_ARRAY_MAP);
-			isObject = true;
+			if (result[0] === Constants.AST_ARRAY) parserException(lex, E_MIXED_ARRAY_MAP);
+			result[0] = Constants.AST_OBJECT;
 			if (values.hasOwnProperty(key)) {
 				result[values[key]] = value;
 			} else {
@@ -301,6 +299,7 @@ function arrayExpression(lex) {
 		}
 	} while (lex.nextToken(Tokens.$COMMA));
 	if (!lex.nextToken(Tokens.$RBRACKET)) parserException(lex);
+	if (!result.length) result.push(Constants.AST_ARRAY);
 	return result;
 }
 

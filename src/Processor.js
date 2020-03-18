@@ -16,19 +16,25 @@ BreakOrContinue.prototype.extend = function(value) {
 	return this;
 };
 
-function processArray(node, scope, ret) {
-	var processItem, result = new HistoneArray(), resultState = Constants.RTTI_V_CLEAN;
-	Utils.$for(function(iterator, iteration) {
-		iterator ? processNode(node[iteration], scope, processItem || (
+function processArray(node, scope, ret, nodeType) {
+	
+	var processItem,
+		resultState = Constants.RTTI_V_CLEAN,
+		isArray = (nodeType === Constants.AST_ARRAY),
+		result = new HistoneArray();
+
+	Utils.$for(function(next, iteration) {
+		if (!next) return ret(result, resultState);
+		processNode(node[iteration], scope, processItem || (
 			processItem = function(value, state) {
 				resultState |= state;
-				if (state & Constants.RTTI_V_NORET)
-					return ret(value, resultState);
-				result.set(value, node[iterator.iteration + 1]);
-				iterator();
+				if (state & Constants.RTTI_V_NORET) return ret(value, resultState);
+				if (isArray) result.set(value);
+				else result.set(value, node[next.iteration + 1]);
+				next();
 			}
-		)) : ret(result, resultState);
-	}, 1, node.length - 1, 2);
+		));
+	}, 1, node.length - 1, isArray ? 1 : 2);
 }
 
 function processLogical(node, scope, ret) {
@@ -468,7 +474,8 @@ function processNode(node, scope, retn, retf) {
 		case Constants.AST_REGEXP: retn(new RegExp(node[1], node[2] || ''), Constants.RTTI_V_CLEAN); break;
 		case Constants.AST_TREE: retn(JSON.stringify(node[1]), Constants.RTTI_V_CLEAN); break;
 
-		case Constants.AST_ARRAY: processArray(node, scope, retn); break;
+		case Constants.AST_ARRAY:
+		case Constants.AST_OBJECT: processArray(node, scope, retn, node[0]); break;
 		case Constants.AST_USUB: processUnaryMinus(node, scope, retn); break;
 		case Constants.AST_ADD: processAddition(node, scope, retn); break;
 

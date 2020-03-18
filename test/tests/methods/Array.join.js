@@ -1,7 +1,7 @@
 module.exports = [
 	`{{return []->join = ""}}`,
 	`{{return [1, 2, 3]->join = "123"}}`,
-	`{{return [foo:'bar',baz:'boo']->join->isUndefined->toString = "true"}}`,
+	`{{return [foo:'bar',baz:'boo']->join = "barboo"}}`,
 	`{{return [foo:'bar',baz:'boo']->values->join = "barboo"}}`,
 	`{{return [foo:0x32,baz:0b11]->values->join = "503"}}`,
 	`{{return [1, 2, 3]->join() = "123"}}`,
