@@ -192,39 +192,33 @@ RTTI.$register(ArrayPrototype, 'find', (self, args, scope, ret) => {
 	}, 0, keys.length - 1);
 });
 
-
-
-
-
-
-
-
-
 RTTI.$register(ArrayPrototype, 'slice', (self, args) => {
-
 	var offset = RTTI.$toInt(args[0]),
 		length = RTTI.$toInt(args[1]),
 		result = new HistoneArray(),
 		values = self.getValues(),
 		arrLen = values.length,
 		keys = self.isArray() ? [] : self.getKeys();
-
 	if (offset === undefined) offset = 0;
 	if (offset < 0) offset = arrLen + offset;
 	if (offset < 0) offset = 0;
 	if (offset > arrLen) return [];
-
 	if (length === undefined) length = 0;
 	if (length === 0) length = arrLen - offset;
 	if (length < 0) length = arrLen - offset + length;
 	if (length <= 0) return [];
-
 	values = values.slice(offset, offset + length);
 	keys = keys.slice(offset, offset + length);
 	while (values.length) result.set(values.shift(), keys.shift());
 	return result;
 });
 
+RTTI.$register(ArrayPrototype, 'set', (self, args) => {
+	if (!args.length) return self;
+	self = self.clone();
+	self.set(args[0], args[1]);
+	return self;
+});
 
 
 
@@ -299,13 +293,6 @@ RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
 
 
 
-
-RTTI.$register(ArrayPrototype, 'set', (self, args) => {
-	if (!args.length) return self;
-	self = self.clone();
-	self.set(args[0], args[1]);
-	return self;
-});
 
 RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
 

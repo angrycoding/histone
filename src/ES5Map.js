@@ -19,12 +19,11 @@ ES5Map.prototype.set = function(key, value) {
 		index = keys.indexOf(key);
 
 	if (index !== -1) {
-		keys.splice(index, 1);
-		values.splice(index, 1);
+		values[index] = value;
+	} else {
+		keys.push(key);
+		this.size = this._values.push(value);
 	}
-	
-	keys.push(key);
-	this.size = this._values.push(value);
 
 };
 
