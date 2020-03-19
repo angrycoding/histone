@@ -13,11 +13,19 @@ ES5Map.prototype.keys = function() {
 };
 
 ES5Map.prototype.set = function(key, value) {
-	var keys = this._keys, index = keys.indexOf(key);
-	if (index === -1) {
-		keys.push(key);
-		this.size = this._values.push(value);
-	} else this._values[index] = value;
+	
+	var keys = this._keys,
+		values = this._values,
+		index = keys.indexOf(key);
+
+	if (index !== -1) {
+		keys.splice(index, 1);
+		values.splice(index, 1);
+	}
+	
+	keys.push(key);
+	this.size = this._values.push(value);
+
 };
 
 ES5Map.prototype.has = function(key) {

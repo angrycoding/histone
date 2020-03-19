@@ -290,12 +290,16 @@ function arrayExpression(lex) {
 		} else {
 			if (result[0] === Constants.AST_ARRAY) parserException(lex, E_MIXED_ARRAY_MAP);
 			result[0] = Constants.AST_OBJECT;
+
 			if (values.hasOwnProperty(key)) {
-				result[values[key]] = value;
-			} else {
-				values[key] = result.length;
-				result.push(value, key);
+				result.splice(values[key], 2);
+				delete values[key];
 			}
+
+			values[key] = result.length;
+			result.push(value, key);
+
+
 		}
 	} while (lex.nextToken(Tokens.$COMMA));
 	if (!lex.nextToken(Tokens.$RBRACKET)) parserException(lex);
