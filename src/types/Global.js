@@ -24,6 +24,12 @@ function getRand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+RTTI.$register(GlobalPrototype, 'message', function(self, args) {
+	console.info.apply(console, args);
+	return '';
+});
+
+
 RTTI.$register(GlobalPrototype, 'getBaseURI', function(self, args, scope) {
 	if (scope instanceof Processor) return scope.baseURI;
 });

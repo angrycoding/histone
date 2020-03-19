@@ -220,80 +220,6 @@ RTTI.$register(ArrayPrototype, 'set', (self, args) => {
 	return self;
 });
 
-
-
-
-
-RTTI.$register(ArrayPrototype, 'sort', (self, args, scope, ret) => {
-
-	var sorter = args.shift(),
-		keys = self.getKeys(),
-		resultState = Constants.RTTI_V_CLEAN;
-
-	if (!(sorter instanceof HistoneMacro)) sorter = null;
-
-	mergeSort(self.getValues().map(function(value, index) {
-
-		return {
-			key: keys[index],
-			value: value
-		};
-
-	}), function(left, right, ret) {
-
-		if (sorter) sorter.call(args.concat(
-			left.value, right.value,
-			left.key, right.key
-		), scope, function(value, state) {
-			resultState |= state;
-			ret(RTTI.$toBoolean(value));
-		});
-
-		else ret(
-			RTTI.$toString(left.value) >
-			RTTI.$toString(right.value)
-		);
-
-
-	}, function(result) {
-		var resultArray = new HistoneArray;
-		while (result.length) {
-			sorter = result.shift();
-			resultArray.set(sorter.value, sorter.key);
-		}
-		ret(resultArray, resultState);
-	});
-});
-
-
-RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
-	var filter = args.shift();
-	if (filter instanceof HistoneMacro) {
-
-		var processItem,
-			offset = 0,
-			keys = self.getKeys(),
-			values = self.getValues(),
-			resultState = Constants.RTTI_V_CLEAN,
-			result = (args.length ? args.shift() : (offset++, values[0]));
-
-		Utils.$for(function(iterator, iteration) {
-			iterator ? filter.call(
-				args.concat(result, values[iteration], keys[iteration], self),
-				scope, processItem || (processItem = function(value, state) {
-					resultState |= state;
-					result = value;
-					iterator();
-				})
-			) : ret(result, resultState);
-		}, offset, values.length - 1);
-
-	} else ret(filter);
-});
-
-
-
-
 RTTI.$register(ArrayPrototype, 'shuffle', (self) => {
 
 	var keys = self.getKeys(),
@@ -325,3 +251,83 @@ RTTI.$register(ArrayPrototype, 'reverse', (self, args) => {
 	while (values.length) result.set(values.pop(), isArray ? undefined : keys.pop());
 	return result;
 });
+
+RTTI.$register(ArrayPrototype, 'sort', (self, args, scope, ret) => {
+
+	var sorter = args.shift(),
+		keys = self.isArray() ? [] : self.getKeys(),
+		resultState = Constants.RTTI_V_CLEAN;
+
+	if (!(sorter instanceof HistoneMacro)) sorter = null;
+
+	mergeSort(self.getValues().map(function(value, index) {
+
+		return {
+			key: keys[index],
+			value: value
+		};
+
+	}), function(left, right, ret) {
+
+		if (sorter) sorter.call(args.concat(
+			left.value, right.value,
+			left.key, right.key
+		), scope, function(value, state) {
+			resultState |= state;
+			ret(RTTI.$toBoolean(value));
+		});
+
+		else ret(
+			RTTI.$toString(left.value) >
+			RTTI.$toString(right.value)
+		);
+
+
+	}, function(result) {
+		
+		var resultArray = new HistoneArray;
+
+		while (result.length) {
+			sorter = result.shift();
+			resultArray.set(sorter.value, sorter.key);
+		}
+
+		ret(resultArray, resultState);
+	});
+});
+
+
+
+
+
+RTTI.$register(ArrayPrototype, 'reduce', (self, args, scope, ret) => {
+	var filter = args.shift();
+	if (!(filter instanceof HistoneMacro)) return ret();
+
+	var processItem, offset = 0,
+		keys = self.getKeys(),
+		values = self.getValues(),
+		resultState = Constants.RTTI_V_CLEAN,
+		result = (args.length ? args.shift() : (offset++, values[0]));
+
+	Utils.$for(function(iterator, iteration) {
+
+		if (!iterator) return ret(result, resultState);
+
+		filter.call(
+			args.concat(result, values[iteration], keys[iteration], self),
+			scope, processItem || (processItem = function(value, state) {
+				resultState |= state;
+				result = value;
+				iterator();
+			})
+		);
+
+		
+	}, offset, values.length - 1);
+
+});
+
+
+
+

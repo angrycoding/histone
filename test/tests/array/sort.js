@@ -1,0 +1,16 @@
+module.exports = [
+	`{{return []->sort->toJSON = "[]"}}`,
+	`{{return ['a', 'b', 'c', 'd', 'e']->sort->toJSON = '["a","b","c","d","e"]'}}`,
+	`{{return ['a', 'b', 'c', 'd', 'e']->reverse->sort->toJSON = '["a","b","c","d","e"]'}}`,
+	`{{return [1, 2, 3, 4, 5, 6]->sort->toJSON = '[1,2,3,4,5,6]'}}`,
+	`{{return [1, 2, 3, 4, 5, 6]->reverse->sort->toJSON = '[1,2,3,4,5,6]'}}`,
+	`{{return [a:1,b:2,c:3]->sort->toJSON = '{"a":1,"b":2,"c":3}'}}`,
+	`{{return [a:1,b:2,c:3]->reverse->sort->toJSON = '{"a":1,"b":2,"c":3}'}}`,
+	`{{return [1, 2, 3, 4, 5, 6]->sort((a, b) => a > b)->toJSON = '[1,2,3,4,5,6]'}}`,
+	`{{return [1, 2, 3, 4, 5, 6]->sort((a, b) => a < b)->toJSON = '[6,5,4,3,2,1]'}}`,
+	`{{return [[v:1], [v:2], [v:3], [v:4], [v:5], [v:6]]->sort((a, b) => a.v < b.v)->toJSON = '[{"v":6},{"v":5},{"v":4},{"v":3},{"v":2},{"v":1}]'}}`,
+	`{{return [[v:1], [v:2], [v:3], [v:4], [v:5], [v:6]]->sort((a, b) => a.v > b.v)->toJSON = '[{"v":1},{"v":2},{"v":3},{"v":4},{"v":5},{"v":6}]'}}`,
+	`{{return [a:100,b:0,c:101,d:300]->sort((a, b) => a > b)->toJSON = '{"b":0,"a":100,"c":101,"d":300}'}}`,
+	`{{return [300:101,200:0,400:300,100:100]->sort((v1, v2, k1, k2) => k1->toNumber > k2->toNumber)->toJSON = '{"100":100,"200":0,"300":101,"400":300}'}}`,
+	`{{return [300:101,200:0,400:300,100:100]->sort((v1, v2, k1, k2) => k1->toNumber < k2->toNumber)->toJSON = '{"400":300,"300":101,"200":0,"100":100}'}}`,
+];
