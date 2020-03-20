@@ -315,7 +315,7 @@ function regexpLiteral(lex) {
 			fragment = lex.setIgnored().nextToken(Tokens.$PROP);
 			RegExp(result, fragment = fragment ? fragment.value : '');
 			result = [Constants.AST_REGEXP, result];
-			if (fragment) result.push(fragment);
+			if (fragment) result.push(fragment.split('').sort().join(''));
 			return result;
 		} catch (exception) { parserException(lex, exception.message); }
 		if (fragment === '\\') result += '\\', fragment = lex.nextChar();

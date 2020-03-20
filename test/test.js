@@ -2,6 +2,7 @@ var FS = require('fs'),
 	Colors = require('colors'),
 	Path = require('path'),
 	Minimist = require('minimist'),
+	Constants = require('../src/Constants'),
 	commandLine = Minimist(process.argv.slice(2)),
 	histonePath = (
 		typeof commandLine.histone === 'string' ?
@@ -142,7 +143,7 @@ getTestSuite(function(testSuitePath, ret) {
 					// var result = Array.prototype.every.call(arguments, result => !!result);
 					printResult(!!result);
 					nextTestCase();
-				}, histonePath);
+				}, histonePath, Constants);
 			}
 
 			catch (exception) {
