@@ -1,4 +1,4 @@
-var Utils = require('./Utils'),
+const
 	RTTI = require('./RTTI'),
 	Constants = require('./Constants'),
 	Processor = require('./Processor'),
@@ -12,26 +12,20 @@ function Template(templateAST, baseURI) {
 	this.templateAST = templateAST;
 }
 
-/** @expose */
 Template.prototype.getBaseURI = function() {
 	return this.baseURI;
 };
 
-/** @expose */
 Template.prototype.getAST = function() {
 	return this.templateAST;
 };
 
 
-function aSorter(a, b) {
-	return (
-		(a instanceof RTTI_R ? 1 : a instanceof Function ? 2 : 3) -
-		(b instanceof RTTI_R ? 1 : b instanceof Function ? 2 : 3)
-	);
-}
+const aSorter = (a, b) => (
+	(a instanceof RTTI_R ? 1 : a instanceof Function ? 2 : 3) -
+	(b instanceof RTTI_R ? 1 : b instanceof Function ? 2 : 3)
+);
 
-
-/** @expose */
 Template.prototype.render = function() {
 
 	var ret, type = RTTI_R_HISTONE,

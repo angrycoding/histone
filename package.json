@@ -1,12 +1,9 @@
 {
-  "name": "histone",
-  "version": "4.0.0",
+  "name": "jte",
+  "version": "4.0.1",
   "description": "Histone template engine",
   "files": [
-    "build",
-    "src",
-    "i18n",
-    "test"
+    "Histone.js"
   ],
   "main": "Histone.js",
   "keywords": [
@@ -17,14 +14,14 @@
   "author": "angrycoding <matveev.ruslan@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "cd build && npm install && node build.js --verbose --lang=../i18n/ru.js --lang=../i18n/en.js --defaultLang=en && cd .. && npm test",
+    "prepublishOnly": "rm -rf ./Histone.js && cd build && npm install && node build.js --verbose --lang=../i18n/ru.js --lang=../i18n/en.js --defaultLang=en && cd .. && npm test",
     "test": "cd test && npm install && node test.js --histone=../Histone.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/angrycoding/jte.git"
   },
-  "dependencies": {
+  "devDependencies": {
     "regexp-lexer": "0.0.10"
   }
 }

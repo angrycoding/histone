@@ -7,7 +7,6 @@ function HistoneMacro(params, body, scope) {
 	this.args = [];
 }
 
-/** @expose */
 HistoneMacro.prototype.toJavaScript = function(toJavaScript) {
 
 	var macro = this;
@@ -37,7 +36,6 @@ HistoneMacro.prototype.toJavaScript = function(toJavaScript) {
 
 };
 
-/** @expose */
 HistoneMacro.prototype.clone = function() {
 	var result = new HistoneMacro();
 	for (var key in this) {
@@ -48,7 +46,6 @@ HistoneMacro.prototype.clone = function() {
 	return result;
 };
 
-/** @expose */
 HistoneMacro.prototype.bind = function(args) {
 	if (Utils.$isArray(args) && args.length) {
 		var macro = this.clone();
@@ -58,7 +55,6 @@ HistoneMacro.prototype.bind = function(args) {
 	return this;
 };
 
-/** @expose */
 HistoneMacro.prototype.call = function(args, scope, ret, mergeSelf) {
 
 

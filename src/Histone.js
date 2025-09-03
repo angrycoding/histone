@@ -36,32 +36,20 @@ function Histone(template, baseURI) {
 	return new Template(template, baseURI);
 }
 
-/** @expose */
 Histone.R_JS = Constants.RTTI_R_JS;
-/** @expose */
 Histone.R_HISTONE = Constants.RTTI_R_HISTONE;
-/** @expose */
 Histone.R_STRING = Constants.RTTI_R_STRING;
-/** @expose */
 Histone.R_SELF = Constants.RTTI_R_SELF;
 
-/** @expose */
 Histone.M_GET = Constants.RTTI_M_GET;
-/** @expose */
 Histone.M_CALL = Constants.RTTI_M_CALL;
-/** @expose */
 Histone.M_TOJS = Constants.RTTI_M_TOJS;
 
-/** @expose */
 Histone.V_CLEAN = Constants.RTTI_V_CLEAN;
-/** @expose */
 Histone.V_DIRTY = Constants.RTTI_V_DIRTY;
-/** @expose */
 Histone.V_NORET = Constants.RTTI_V_NORET;
 
-/** @expose */
 Histone.toJSON = RTTI.$toJSON;
-/** @expose */
 Histone.toString = RTTI.$toString;
 /** @expose */
 Histone.toNumber = RTTI.$toNumber;
@@ -81,21 +69,13 @@ Histone.invoke = RTTI.$call;
 
 /** @expose */
 Histone.global = RTTI.$global;
-/** @expose */
 Histone.Base = RTTI.$Base;
-/** @expose */
 Histone.Undefined = RTTI.$Undefined;
-/** @expose */
 Histone.Null = RTTI.$Null;
-/** @expose */
 Histone.Boolean = RTTI.$Boolean;
-/** @expose */
 Histone.Number = RTTI.$Number;
-/** @expose */
 Histone.String = RTTI.$String;
-/** @expose */
 Histone.RegExp = RTTI.$RegExp;
-/** @expose */
 Histone.Macro = RTTI.$Macro;
 /** @expose */
 Histone.Array = RTTI.$Array;
@@ -104,15 +84,11 @@ Histone.Date = RTTI.$Date;
 /** @expose */
 Histone.Global = RTTI.$Global;
 
-/** @expose */
 Histone.version = Constants.VERSION;
-/** @expose */
 Histone.setLanguage = i18n.$setLanguage;
-
-/** @expose */
 Histone.setCache = Network.$setCache;
-/** @expose */
 Histone.clearCache = Network.$clearCache;
+
 /** @expose */
 Histone.loadText = Network.$loadText;
 /** @expose */

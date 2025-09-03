@@ -228,9 +228,15 @@ function htmlentities(string) {
 	.replace(/'/g, "&#039;");
 }
 
+function isLeapYear(year) {
+    // високосный: кратен 4, но не 100, кроме кратных 400
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
 function getDaysInMonth(year, month) {
-	var date = new Date([('0000' + year).slice(-4), ('00' + month).slice(-2), '01'].join('-'));
-	return -(date.getTime() - date.setMonth(month)) / MS_IN_DAY;
+	if (month === 2) return isLeapYear(year) ? 29 : 28;
+	if ([4, 6, 9, 11].includes(month)) return 30;
+	return 31;
 }
 
 function dateOffset(date, offset) {
