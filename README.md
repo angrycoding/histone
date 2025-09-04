@@ -1,4 +1,4 @@
-# Histone - cross-platform template engine&nbsp;&nbsp;[![Build Status](https://travis-ci.org/MegafonWebLab/histone-javascript.svg?branch=master)](https://travis-ci.org/MegafonWebLab/histone-javascript)&nbsp;[![npm version](https://badge.fury.io/js/histone.svg)](https://npmjs.org/package/histone)
+# Histone - cross-platform template engine&nbsp;&nbsp;[![npm version](https://badge.fury.io/js/histone.svg)](https://npmjs.org/package/histone)
 
 [![NPM](https://nodei.co/npm/histone.png?downloads=true&stars=true&downloadRank=true)](https://nodei.co/npm/histone/)
 
