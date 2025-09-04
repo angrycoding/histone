@@ -1,0 +1,337 @@
+<div class="repository-content ">
+
+    
+      
+  <div id="wiki-wrapper" class="page">
+    <div class="d-flex flex-column flex-md-row gh-header">
+      <h1 class="flex-auto min-width-0 mb-2 mb-md-0 mr-0 mr-md-2 gh-header-title">Home</h1>
+
+        <div class="mt-0 mt-lg-1 flex-shrink-0 gh-header-actions">
+          <a href="#wiki-pages-box" class="d-md-none ">Jump to bottom</a>
+
+        </div>
+    </div>
+
+    <div class="mt-2 mt-md-1 pb-3 gh-header-meta">
+      Ruslan edited this page <relative-time datetime="2016-07-12T19:11:17Z" class="no-wrap" title="Jul 12, 2016, 9:11 PM GMT+2">on Jul 12, 2016</relative-time>
+      ·
+      <a href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Home/_history" class="muted-link">
+        71 revisions
+      </a>
+    </div>
+
+  <div id="wiki-content" class="mt-4">
+    <div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+
+  <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+            <div id="wiki-body" class="gollum-markdown-content">
+            <div class="markdown-body">
+              <p>Constructs instance of <a href="wiki/Template">Template</a> class and serves as container for exposed properties and methods.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-v">Histone</span><span class="pl-kos">(</span><span class="pl-s1">template</span><span class="pl-kos">[</span><span class="pl-kos">,</span> <span class="pl-s1">baseURI</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-parameters" class="anchor" href="#parameters" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Parameters</h3>
+<ul>
+<li>
+<p><strong>template</strong><br>
+Template passed as String or AST.</p>
+</li>
+<li>
+<p><strong>baseURI</strong><br>
+Base URI of the template, which is passed as the first argument.</p>
+</li>
+</ul>
+<h3>
+<a id="user-content-return-value" class="anchor" href="#return-value" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Return value</h3>
+<p>Returns instance of <a href="wiki/Template">Template</a> class.</p>
+<h3>
+<a id="user-content-static-properties" class="anchor" href="#static-properties" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Static properties</h3>
+<p><strong>Histone.version</strong></p>
+<p>Version of Histone template engine as JavaScript String.</p>
+<p><strong>Histone.R_JS</strong></p>
+<p>Used in <a href="wiki/Template.render#specify-desired-result-type">Template.render</a>, <a href="wiki/Histone.register#using-histoner_js-and-histoner_histone-to-specify-desired-argument-type">Histone.register</a> and <a href="wiki/Histone.invoke#using-histoner_js-and-histoner_histone-to-specify-desired-return-type">Histone.invoke</a> to set desired return or argument type.</p>
+<p><strong>Histone.R_HISTONE</strong></p>
+<p>Used in <a href="wiki/Template.render#specify-desired-result-type">Template.render</a>, <a href="wiki/Histone.register#using-histoner_js-and-histoner_histone-to-specify-desired-argument-type">Histone.register</a> and <a href="wiki/Histone.invoke#using-histoner_js-and-histoner_histone-to-specify-desired-return-type">Histone.invoke</a> to set desired return or argument type.</p>
+<p><strong>Histone.R_STRING</strong></p>
+<p>Used in <a href="wiki/Template.render#specify-desired-result-type">Template.render</a> to set desired return type.</p>
+<p><strong>Histone.R_SELF</strong></p>
+<p>Used in <a href="wiki/Histone.register#using-histoner_self-to-specify-that-method-returns-the-value-itself">Histone.register</a> to specify that method returns self.</p>
+<p><strong>Histone.M_GET</strong></p>
+<p>Used in <a href="wiki/Histone.register#using-histonem_get-to-specify-property-getter">Histone.register</a> and <a href="wiki/Histone.invoke#using-histonem_get-to-invoke-property-getter">Histone.invoke</a> to specify or invoke property getter.</p>
+<p><strong>Histone.M_CALL</strong></p>
+<p>Used in <a href="wiki/Histone.register#using-histonem_call-to-specify-call-handler">Histone.register</a> and <a href="wiki/Histone.invoke#using-histonem_call-to-invoke-call-handler">Histone.invoke</a> to specify or invoke call handler.</p>
+<p><strong>Histone.M_TOJS</strong></p>
+<p>Used in <a href="wiki/Histone.register#using-histonem_tojs-to-specify-tojavascript-convertor">Histone.register</a>, <a href="wiki/Histone.invoke#using-histonem_tojs-to-invoke-tojavascript-convertor">Histone.invoke</a> and <a href="wiki/Histone.toJavaScript">Histone.toJavaScript</a> to specify or invoke method which is responsible for converting Histone value into JavaScript value.</p>
+<p><strong>Base</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Base">Histone.Base</a> constructor (used as virtual parent for all Histone data types).</p>
+<p><strong>Undefined</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Undefined">Histone.Undefined</a> constructor.</p>
+<p><strong>Null</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Null">Histone.Null</a> constructor.</p>
+<p><strong>Boolean</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Boolean">Histone.Boolean</a> constructor.</p>
+<p><strong>Number</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Number">Histone.Number</a> constructor.</p>
+<p><strong>Histone.String</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.String">Histone.String</a> constructor.</p>
+<p><strong>RegExp</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.RegExp">Histone.RegExp</a> constructor.</p>
+<p><strong>Macro</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Macro">Histone.Macro</a> constructor.</p>
+<p><strong>Array</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Array">Histone.Array</a> constructor.</p>
+<p><strong>Date</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Date">Histone.Date</a> constructor.</p>
+<p><strong>Global</strong></p>
+<p>Holds reference to the <a href="wiki/Histone.Global">Histone.Global</a> constructor.</p>
+<p><strong>Histone.global</strong></p>
+<p>Holds reference to the instance of <a href="wiki/Histone.Global">Histone.Global</a>, which is used as global object in the template runtime.</p>
+<h3>
+<a id="user-content-static-methods" class="anchor" href="#static-methods" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Static methods</h3>
+<p><strong>Histone.setCache</strong></p>
+<p>Enables or disables internal Histone cache</p>
+<p><strong><a href="wiki/Histone.clearCache">Histone.clearCache</a></strong></p>
+<p>Clears internal Histone cache.</p>
+<p><strong>Histone.setLanguage</strong></p>
+<p>Sets current locale</p>
+<p><strong><a href="wiki/Histone.setResourceLoader">Histone.setResourceLoader</a></strong></p>
+<p>Sets up resource loader which is going to be responsible for handling network requests.</p>
+<p><strong><a href="wiki/Histone.toJSON">Histone.toJSON</a></strong></p>
+<p>Converts it's argument into a JSON String, calls previously registered toJSON method internally. Provides more convenient way of doing the same thing, rather than using <a href="wiki/Histone.invoke">Histone.invoke</a>.</p>
+<p><strong><a href="wiki/Histone.toString">Histone.toString</a></strong></p>
+<p>Converts it's argument into a JavaScript String, calls previously registered toString method internally. Provides more convenient way of doing the same thing, rather than using <a href="wiki/Histone.invoke">Histone.invoke</a>.</p>
+<p><strong><a href="wiki/Histone.toNumber">Histone.toNumber</a></strong></p>
+<p>Converts it's argument into a JavaScript Number, calls previously registered toNumber method internally. Provides more convenient way of doing the same thing, rather than using <a href="wiki/Histone.invoke">Histone.invoke</a>.</p>
+<p><strong><a href="wiki/Histone.toBoolean">Histone.toBoolean</a></strong></p>
+<p>Converts it's argument into a JavaScript Boolean, calls previously registered toBoolean method internally. Provides more convenient way of doing the same thing, rather than using <a href="wiki/Histone.invoke">Histone.invoke</a>.</p>
+<p><strong><a href="wiki/Histone.toJavaScript">Histone.toJavaScript</a></strong></p>
+<p>Converts it's argument into a JavaScript value, calls previously registered <a href="wiki/Histone.register#using-histonem_tojs-to-specify-tojavascript-convertor">Histone.M_TOJS</a> method internally. Provides more convenient way of doing the same thing, rather than using <a href="wiki/Histone.invoke#using-histonem_tojs-to-invoke-tojavascript-convertor">Histone.invoke</a>.</p>
+<p><strong><a href="wiki/Histone.toHistone">Histone.toHistone</a></strong></p>
+<p>Converts it's argument into a Histone value. If the value is previously registered value, returns the value itself, otherwise attempts to convert passed value.</p>
+<p><strong><a href="wiki/Histone.loadText">Histone.loadText</a></strong></p>
+<p>Loads text file using resource loader, previously specified using <a href="wiki/Histone.setResourceLoader">Histone.setResourceLoader</a> asynchronously.</p>
+<p><strong><a href="wiki/Histone.loadJSON">Histone.loadJSON</a></strong></p>
+<p>Loads JSON file using resource loader, previously specified using <a href="wiki/Histone.setResourceLoader">Histone.setResourceLoader</a> asynchronously.</p>
+<p><strong><a href="wiki/Histone.require">Histone.require</a></strong></p>
+<p>Loads and processes the template file using resource loader specified using <a href="wiki/Histone.setResourceLoader">Histone.setResourceLoader</a> asynchronously.</p>
+<p><strong><a href="wiki/Histone.register">Histone.register</a></strong></p>
+<p>Registers virtual method that adds or modifies one of the built-in Histone data types or custom data type.</p>
+<p><strong><a href="wiki/Histone.unregister">Histone.unregister</a></strong></p>
+<p>Unregisters (removes) previously registered (by <a href="wiki/Histone.register">Histone.register</a>) virtual method.</p>
+<p><strong><a href="wiki/Histone.invoke">Histone.invoke</a></strong></p>
+<p>Calls previously registered (by <a href="wiki/Histone.register">Histone.register</a>) virtual method and returns the result of it's invocation.</p>
+
+            </div>
+
+            <div id="wiki-footer" class="mt-5 mb-0 wiki-footer gollum-markdown-content">
+              <div class="Box Box--condensed bg-gray box-shadow">
+                <div class="Box-body  markdown-body">
+                  <h3>
+<a id="user-content-more-documentation" class="anchor" href="#more-documentation" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>More documentation</h3>
+<ul>
+<li><a href="/web/20201022090155/https://github.com/MegafonWebLab/histone-documentation">Histone documentation</a></li>
+<li><a href="/web/20201022090155/https://github.com/MegafonWebLab/histone-documentation/wiki">Histone reference</a></li>
+<li><a href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript">JavaScript documentation</a></li>
+<li><a href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki">JavaScript reference</a></li>
+</ul>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+</div>
+    <div class="flex-shrink-0 col-12 col-md-3">
+              <div class="wiki-rightbar">
+          <div id="wiki-pages-box" class="mb-4 wiki-pages-box js-wiki-pages-box" role="navigation">
+            
+<div class="Box Box--condensed box-shadow">
+  <div class="Box-header js-wiki-toggle-collapse" style="cursor: pointer">
+    <h3 class="Box-title">
+      <svg class="octicon octicon-triangle-down js-wiki-sidebar-toggle-display d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z"></path></svg>
+      <svg class="octicon octicon-triangle-right js-wiki-sidebar-toggle-display" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.427 4.427l3.396 3.396a.25.25 0 010 .354l-3.396 3.396A.25.25 0 016 11.396V4.604a.25.25 0 01.427-.177z"></path></svg>
+      Pages <span title="30" class="Counter Counter--gray ">30</span>
+    </h3>
+  </div>
+  <div class="d-none js-wiki-sidebar-toggle-display">
+    <div class="filter-bar">
+      <input type="text" id="wiki-pages-filter" class="form-control input-sm input-block js-filterable-field" placeholder="Find a Page…" aria-label="Find a Page…" autocomplete="off">
+    </div>
+
+    <ul class="m-0 p-0 list-style-none" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki">Home</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Array">Histone.Array</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Base">Histone.Base</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Boolean">Histone.Boolean</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.clearCache">Histone.clearCache</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Date">Histone.Date</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Global">Histone.Global</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.invoke">Histone.invoke</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.loadJSON">Histone.loadJSON</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.loadText">Histone.loadText</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Macro">Histone.Macro</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Null">Histone.Null</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Number">Histone.Number</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.RegExp">Histone.RegExp</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.register">Histone.register</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.require">Histone.require</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.setResourceLoader">Histone.setResourceLoader</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.String">Histone.String</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toBoolean">Histone.toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toHistone">Histone.toHistone</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toJavaScript">Histone.toJavaScript</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toJSON">Histone.toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toNumber">Histone.toNumber</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toString">Histone.toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Undefined">Histone.Undefined</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.unregister">Histone.unregister</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Template">Template</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Template.getAST">Template.getAST</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Template.getBaseURI">Template.getBaseURI</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="/web/20201022090155/https://github.com/MegafonWebLab/histone-javascript/wiki/Template.render">Template.render</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages-link">
+          <button type="button" class="f6 mx-auto btn-link muted-link js-wiki-more-pages-link">
+            Show 15 more pages…
+          </button>
+        </li>
+    </ul>
+  </div>
+</div>
+
+          </div>
+
+            <div class="gollum-markdown-content">
+              <div class="Box Box--condensed mb-4">
+                <div class="Box-body wiki-custom-sidebar markdown-body">
+                  <h4>
+<a id="user-content-histone" class="anchor" href="#histone" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="wiki/Home">Histone</a>
+</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.loadText">loadText</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.loadJSON">loadJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.require">require</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.register">register</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.unregister">unregister</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.invoke">invoke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setCache<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.clearCache">clearCache</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setLanguage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.setResourceLoader">setResourceLoader</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toJavaScript">toJavaScript</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.toHistone">toHistone</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Base">Base</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Undefined">Undefined</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Null">Null</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Boolean">Boolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Number">Number</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.String">String</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.RegExp">RegExp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Macro">Macro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bind<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toJavaScript<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Array">Array</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isMap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isArray<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getLength<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getFirst<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getLast<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getValues<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getKeys<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toJavaScript<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Date">Date</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Histone.Global">Global</a></p>
+<h4>
+<a id="user-content-template" class="anchor" href="#template" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="wiki/Template">Template</a>
+</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Template.getBaseURI">getBaseURI</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Template.getAST">getAST</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="wiki/Template.render">render</a></p>
+
+                </div>
+              </div>
+            </div>
+
+          <h5 class="mt-0 mb-2">Clone this wiki locally</h5>
+          <div class="width-full input-group">
+            <input id="wiki-clone-url" type="text" data-autoselect="" class="form-control input-sm text-small text-gray input-monospace" aria-label="Clone URL for this wiki" value="https://github.com/MegafonWebLab/histone-javascript.wiki.git" readonly="">
+            <span class="input-group-button">
+              <clipboard-copy for="wiki-clone-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button" tabindex="0" role="button">
+                <svg class="octicon octicon-clippy" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+              </clipboard-copy>
+            </span>
+          </div>
+        </div>
+
+</div></div>  </div>
+
+
+  </div>
+</div>

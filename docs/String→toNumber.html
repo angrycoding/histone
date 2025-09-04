@@ -1,0 +1,512 @@
+
+
+    
+      
+  <div id="wiki-wrapper" class="page">
+    <div class="d-flex flex-column flex-md-row gh-header">
+      <h1 class="flex-auto min-width-0 mb-2 mb-md-0 mr-0 mr-md-2 gh-header-title">String→toNumber</h1>
+
+        <div class="mt-0 mt-lg-1 flex-shrink-0 gh-header-actions">
+          <a href="#wiki-pages-box" class="d-md-none ">Jump to bottom</a>
+
+        </div>
+    </div>
+
+    <div class="mt-2 mt-md-1 pb-3 gh-header-meta">
+      Ruslan edited this page <relative-time datetime="2015-03-31T10:12:42Z" class="no-wrap" title="Mar 31, 2015, 12:12 PM GMT+2">on Mar 31, 2015</relative-time>
+      ·
+      <a href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toNumber/_history" class="muted-link">
+        2 revisions
+      </a>
+    </div>
+
+  <div id="wiki-content" class="mt-4">
+    <div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+
+  <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+            <div id="wiki-body" class="gollum-markdown-content">
+            <div class="markdown-body">
+              <p>Returns Number representation of a String value.</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-v">String</span>-&gt;<span class="pl-en">toNumber</span>([defaultValue])</pre></div>
+<p>For the values of other types, returns Number which depends on the variable's type and value, accepts one optional argument which will be returned in case if the value cannot be converted to Number:</p>
+<div class="highlight highlight-text-html-smarty"><pre>&lt;<span class="pl-ent">div</span>&gt;<span class="pl-s1"><span class="pl-pse">{</span>{<span class="pl-s"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span><span class="pl-smi"><span class="pl-k">-&gt;</span><span class="pl-smi">toNumber</span></span><span class="pl-pse">}</span></span>} = 10&lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span>&gt;<span class="pl-s1"><span class="pl-pse">{</span>{<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span><span class="pl-smi"><span class="pl-k">-&gt;</span><span class="pl-smi">toNumber</span></span><span class="pl-pse">}</span></span>} = 0&lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span>&gt;<span class="pl-s1"><span class="pl-pse">{</span>{<span class="pl-s"><span class="pl-pds">'</span>NOT_A_NUMBER<span class="pl-pds">'</span></span><span class="pl-smi"><span class="pl-k">-&gt;</span><span class="pl-smi">toNumber</span></span><span class="pl-pse">}</span></span>} = &lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span>&gt;<span class="pl-s1"><span class="pl-pse">{</span>{<span class="pl-s"><span class="pl-pds">'</span>NOT_A_NUMBER<span class="pl-pds">'</span></span><span class="pl-smi"><span class="pl-k">-&gt;</span><span class="pl-smi">toNumber</span></span>(42)<span class="pl-pse">}</span></span>} = 42&lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span>&gt;<span class="pl-s1"><span class="pl-pse">{</span>{<span class="pl-s"><span class="pl-pds">'</span>NOT_A_NUMBER<span class="pl-pds">'</span></span><span class="pl-smi"><span class="pl-k">-&gt;</span><span class="pl-smi">toNumber</span></span>(<span class="pl-s"><span class="pl-pds">'</span>NaN<span class="pl-pds">'</span></span>)<span class="pl-pse">}</span></span>} = NaN&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+            </div>
+
+        </div>
+
+</div>
+    <div class="flex-shrink-0 col-12 col-md-3">
+              <div class="wiki-rightbar">
+          <div id="wiki-pages-box" class="mb-4 wiki-pages-box js-wiki-pages-box" role="navigation">
+            
+<div class="Box Box--condensed box-shadow">
+  <div class="Box-header js-wiki-toggle-collapse" style="cursor: pointer">
+    <h3 class="Box-title">
+      <svg class="octicon octicon-triangle-down js-wiki-sidebar-toggle-display d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z"></path></svg>
+      <svg class="octicon octicon-triangle-right js-wiki-sidebar-toggle-display" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.427 4.427l3.396 3.396a.25.25 0 010 .354l-3.396 3.396A.25.25 0 016 11.396V4.604a.25.25 0 01.427-.177z"></path></svg>
+      Pages <span title="90" class="Counter Counter--gray ">90</span>
+    </h3>
+  </div>
+  <div class="d-none js-wiki-sidebar-toggle-display">
+    <div class="filter-bar">
+      <input type="text" id="wiki-pages-filter" class="form-control input-sm input-block js-filterable-field" placeholder="Find a Page…" aria-label="Find a Page…" autocomplete="off">
+    </div>
+
+    <ul class="m-0 p-0 list-style-none" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki">Home</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Arithmetic-operators">Arithmetic operators</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array">Array</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92chunk">Array→chunk</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92every">Array→every</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92filter">Array→filter</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92join">Array→join</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92keys">Array→keys</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92map">Array→map</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92reverse">Array→reverse</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92size">Array→size</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92slice">Array→slice</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92some">Array→some</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Array%E2%86%92values">Array→values</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Boolean">Boolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Boolean%E2%86%92isBoolean">Boolean→isBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Boolean%E2%86%92toBoolean">Boolean→toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Boolean%E2%86%92toJSON">Boolean→toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Boolean%E2%86%92toString">Boolean→toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Comment-statement">Comment statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Comparison-operators">Comparison operators</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Conditional-statement">Conditional statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Data-types">Data types</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Expression-statement">Expression statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getBaseURI">global→getBaseURI</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getDayOfWeek">global→getDayOfWeek</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getDaysInMonth">global→getDaysInMonth</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getMax">global→getMax</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getMin">global→getMin</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getMonthNameLong">global→getMonthNameLong</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getMonthNameShort">global→getMonthNameShort</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getRand">global→getRand</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getUniqueId">global→getUniqueId</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getWeekDayNameLong">global→getWeekDayNameLong</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92getWeekDayNameShort">global→getWeekDayNameShort</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92loadJSON">global→loadJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92loadText">global→loadText</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92range">global→range</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92require">global→require</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/global%E2%86%92resolveURI">global→resolveURI</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Literal-statement">Literal statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Logical-operators">Logical operators</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Loop-statement">Loop statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Macro">Macro</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Macro-statement">Macro statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Macro%E2%86%92bind">Macro→bind</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Macro%E2%86%92call">Macro→call</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Macro%E2%86%92extend">Macro→extend</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Method-call-operator">Method call operator</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Null">Null</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Null%E2%86%92isNull">Null→isNull</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Null%E2%86%92toBoolean">Null→toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Null%E2%86%92toJSON">Null→toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Null%E2%86%92toString">Null→toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number">Number</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92isFloat">Number→isFloat</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92isInt">Number→isInt</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92isNumber">Number→isNumber</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toAbs">Number→toAbs</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toBoolean">Number→toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toCeil">Number→toCeil</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toChar">Number→toChar</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toFixed">Number→toFixed</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toFloor">Number→toFloor</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toJSON">Number→toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toNumber">Number→toNumber</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toRound">Number→toRound</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Number%E2%86%92toString">Number→toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Property-accessors">Property accessors</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/RegExp">RegExp</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/RegExp%E2%86%92test">RegExp→test</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Return-statement">Return statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Statements">Statements</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String">String</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92charCodeAt">String→charCodeAt</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92isString">String→isString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92size">String→size</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92slice">String→slice</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92split">String→split</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92strip">String→strip</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toBoolean">String→toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toJSON">String→toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toLowerCase">String→toLowerCase</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toNumber">String→toNumber</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toString">String→toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/String%E2%86%92toUpperCase">String→toUpperCase</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Ternary-operator">Ternary operator</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Undefined">Undefined</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Undefined%E2%86%92isUndefined">Undefined→isUndefined</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-documentation/wiki/Variable-statement">Variable statement</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages-link">
+          <button type="button" class="f6 mx-auto btn-link muted-link js-wiki-more-pages-link">
+            Show 75 more pages…
+          </button>
+        </li>
+    </ul>
+  </div>
+</div>
+
+          </div>
+
+            <div class="gollum-markdown-content">
+              <div class="Box Box--condensed mb-4">
+                <div class="Box-body wiki-custom-sidebar markdown-body">
+                  <h5>
+<a id="user-content-statements" class="anchor" href="#statements" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="Statements">Statements</a>
+</h5>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Variable-statement">Variable statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Comment-statement">Comment statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Suppress-statement">Suppress statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Conditional-statement">Conditional statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Loop-statement">Loop statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="While-statement">While statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Return-statement">Return statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Break-statement">Break statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Continue-statement">Continue statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Macro-statement">Macro statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Expression-statement">Expression statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Template-statement">Template statement</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Literal-statement">Literal statement</a></strong><br></p>
+<h5>
+<a id="user-content-operators" class="anchor" href="#operators" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="Operators">Operators</a>
+</h5>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Ternary-operator">Ternary operator</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Logical-operators">Logical operators</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Comparison-operators">Comparison operators</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Arithmetic-operators">Arithmetic operators</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Property-accessors">Property accessors</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="Method-call-operator">Method call operator</a></strong><br></p>
+<h5>
+<a id="user-content-data-types" class="anchor" href="#data-types" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="data-types">Data types</a><br>
+</h5>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="base">Base</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isUndefined">isUndefined</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isNull">isNull</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isBoolean">isBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isNumber">isNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isString">isString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isArray">isArray</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isRegExp">isRegExp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isMacro">isMacro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92isDate">isDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92toMacro">toMacro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92toArray">toArray</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92hasMethod">hasMethod</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Base%E2%86%92getMethod">getMethod</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="undefined">Undefined</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Undefined%E2%86%92isUndefined">isUndefined</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="null">Null</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Null%E2%86%92isNull">isNull</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Null%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Null%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Null%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="boolean">Boolean</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boolean%E2%86%92isBoolean">isBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boolean%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boolean%E2%86%92toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boolean%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boolean%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="number">Number</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92isNumber">isNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92isInt">isInt</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92isFloat">isFloat</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toAbs">toAbs</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toFloor">toFloor</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toCeil">toCeil</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toRound">toRound</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toChar">toChar</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toFixed">toFixed</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Number%E2%86%92toDate">toDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="string">String</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%5B%5D">[] operator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92isString">isString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92length">length</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toLowerCase">toLowerCase</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toUpperCase">toUpperCase</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92htmlentities">htmlentities</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92toDate">toDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92split">split</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92charCodeAt">charCodeAt</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92strip">strip</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92slice">slice</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="String%E2%86%92replace">replace</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="regexp">RegExp</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RegExp%E2%86%92test">test</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="array">Array</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%5B%5D">[] operator</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92isArray">isArray</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92toDate">toDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92length">length</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92keys">keys</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92values">values</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92first">first</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92last">last</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92htmlentities">htmlentities</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92has">has</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92slice">slice</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92chunk">chunk</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92join">join</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92every">every</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92some">some</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92filter">filter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92sort">sort</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92group">group</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92find">find</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92map">map</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Array%E2%86%92reduce">reduce</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="macro">Macro</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92isMacro">isMacro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92bind">bind</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92call">call</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Macro%E2%86%92extend">extend</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="date">Date</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Date%E2%86%92isDate">isDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Date%E2%86%92toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="global">Global</a></strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92eval">eval</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92wait">wait</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getBaseURI">getBaseURI</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92resolveURI">resolveURI</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getDaysInMonth">getDaysInMonth</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getDayOfWeek">getDayOfWeek</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getMin">getMin</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getMax">getMax</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92range">range</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getWeekDayNameShort">getWeekDayNameShort</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getWeekDayNameLong">getWeekDayNameShort</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getMonthNameShort">getMonthNameShort</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getMonthNameLong">getMonthNameLong</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getUniqueId">getUniqueId</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getRand">getRand</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92getDate">getDate</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92loadText">loadText</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92loadJSON">loadJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Global%E2%86%92require">require</a></p>
+
+                </div>
+              </div>
+            </div>
+
+          <h5 class="mt-0 mb-2">Clone this wiki locally</h5>
+          <div class="width-full input-group">
+            <input id="wiki-clone-url" type="text" data-autoselect="" class="form-control input-sm text-small text-gray input-monospace" aria-label="Clone URL for this wiki" value="https://github.com/MegafonWebLab/histone-documentation.wiki.git" readonly="">
+            <span class="input-group-button">
+              <clipboard-copy for="wiki-clone-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button" tabindex="0" role="button">
+                <svg class="octicon octicon-clippy" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+              </clipboard-copy>
+            </span>
+          </div>
+        </div>
+
+</div></div>  </div>
+
+
+  </div>

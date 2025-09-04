@@ -1,0 +1,348 @@
+
+
+    
+      
+  <div id="wiki-wrapper" class="page">
+    <div class="d-flex flex-column flex-md-row gh-header">
+      <h1 class="flex-auto min-width-0 mb-2 mb-md-0 mr-0 mr-md-2 gh-header-title">Histone.invoke</h1>
+
+        <div class="mt-0 mt-lg-1 flex-shrink-0 gh-header-actions">
+          <a href="#wiki-pages-box" class="d-md-none ">Jump to bottom</a>
+
+        </div>
+    </div>
+
+    <div class="mt-2 mt-md-1 pb-3 gh-header-meta">
+      Ruslan edited this page <relative-time datetime="2016-07-12T09:43:31Z" class="no-wrap" title="Jul 12, 2016, 11:43 AM GMT+2">on Jul 12, 2016</relative-time>
+      ·
+      <a href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.invoke/_history" class="muted-link">
+        26 revisions
+      </a>
+    </div>
+
+  <div id="wiki-content" class="mt-4">
+    <div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+
+  <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+            <div id="wiki-body" class="gollum-markdown-content">
+            <div class="markdown-body">
+              <p>Calls previously registered (by <a href="Histone.register">Histone.register</a>) virtual method and returns the result of it's invocation.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s1">self</span><span class="pl-kos">,</span> <span class="pl-s1">methodName</span><span class="pl-kos">[</span><span class="pl-kos">,</span> <span class="pl-s1">args</span><span class="pl-kos">]</span><span class="pl-kos">[</span><span class="pl-kos">,</span> <span class="pl-s1">callback</span><span class="pl-kos">]</span><span class="pl-kos">[</span><span class="pl-kos">,</span> <span class="pl-s1">resultType</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-parameters" class="anchor" href="#parameters" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Parameters</h3>
+<ul>
+<li>
+<p><strong>self</strong><br>
+The value of self, provided for the call to methodName. This value will automatically be converted into corresponding Histone data type if necessary, so any previously registered value can be specified here.</p>
+</li>
+<li>
+<p><strong>methodName</strong><br>
+The name of the method to be called, specified as JavaScript String, Array (in case of calling method on the prototype, i.e. "super call") or magic method id: <a href="#using-histonem_get-to-invoke-property-getter">Histone.M_GET</a>, <a href="#using-histonem_call-to-invoke-call-handler">Histone.M_CALL</a> or <a href="#using-histonem_tojs-to-invoke-tojavascript-convertor">Histone.M_TOJS</a>.</p>
+</li>
+<li>
+<p><strong>args</strong><br>
+Array of arguments or a single argument, to be used to call desired method. This parameter is optional and can be omitted.</p>
+</li>
+<li>
+<p><strong>callback</strong><br>
+Optional callback function to be used to return result of asynchronous method, has one argument:</p>
+</li>
+<li>
+<p><strong>result</strong> - execution result.</p>
+</li>
+<li>
+<p><strong>resultType</strong><br>
+Desired result type, can be set to Histone.R_JS (result will always be converted to JavaScript), defaults to Histone.R_HISTONE. This parameter is optional and can be omitted.</p>
+</li>
+</ul>
+<h3>
+<a id="user-content-return-value" class="anchor" href="#return-value" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Return value</h3>
+<p>Returns result of calling specified method synchronously, result type depends on resultType argument (JavaScript or Histone). If method is asynchronous, returns undefined.</p>
+<h3>
+<a id="user-content-basic-example" class="anchor" href="#basic-example" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic example</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// calling Histone.Array-&gt;join with no arguments, result = 123</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s">'join'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// calling Histone.String-&gt;split, result = Histone.Array</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-using-histonem_get-to-invoke-property-getter" class="anchor" href="#using-histonem_get-to-invoke-property-getter" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using Histone.M_GET to invoke property getter</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// t</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">M_GET</span><span class="pl-kos">,</span> <span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-using-histonem_call-to-invoke-call-handler" class="anchor" href="#using-histonem_call-to-invoke-call-handler" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using Histone.M_CALL to invoke call handler</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// register call handler for a String</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">String</span><span class="pl-kos">.</span><span class="pl-c1">prototype</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">M_CALL</span><span class="pl-kos">,</span> <span class="pl-s">'CALL_RESULT'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// CALL_RESULT</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">M_CALL</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-using-histonem_tojs-to-invoke-tojavascript-convertor" class="anchor" href="#using-histonem_tojs-to-invoke-tojavascript-convertor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using Histone.M_TOJS to invoke toJavaScript convertor</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// register custom toJavaScript convertor</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">.</span><span class="pl-c1">prototype</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">M_TOJS</span><span class="pl-kos">,</span> <span class="pl-s">'AS_JS'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// AS_JS</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">M_TOJS</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-calling-method-on-prototypes" class="anchor" href="#calling-method-on-prototypes" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Calling method on prototypes</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 1.2.3.4</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">4</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">.</span><span class="pl-c1">prototype</span><span class="pl-kos">,</span> <span class="pl-s">'join'</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s">'.'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-passing-arguments" class="anchor" href="#passing-arguments" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Passing arguments</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// pass single argument, result = 1-2-3-4</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">4</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s">'join'</span><span class="pl-kos">,</span> <span class="pl-s">'-'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// pass single argument in the array, result = 1.2.3.4</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">4</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s">'join'</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-s">'.'</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// pass two and more arguments, result = 3</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">global</span><span class="pl-kos">,</span> <span class="pl-s">'getMin'</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">20</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">30</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-specify-callback-function-to-handle-result-of-asynchronous-calls" class="anchor" href="#specify-callback-function-to-handle-result-of-asynchronous-calls" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Specify callback function to handle result of asynchronous calls</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// register method that returns first argument after 1 second delay</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Global</span><span class="pl-kos">.</span><span class="pl-c1">prototype</span><span class="pl-kos">,</span> <span class="pl-s">'waitAndReturn'</span><span class="pl-kos">,</span> <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">self</span><span class="pl-kos">,</span> <span class="pl-s1">args</span><span class="pl-kos">,</span> <span class="pl-s1">scope</span><span class="pl-kos">,</span> <span class="pl-s1">ret</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">ret</span><span class="pl-kos">(</span><span class="pl-s1">args</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c1">1000</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// invoke our asynchronous method</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">global</span><span class="pl-kos">,</span> <span class="pl-s">'waitAndReturn'</span><span class="pl-kos">,</span> <span class="pl-s">'FOO'</span><span class="pl-kos">,</span> <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// FOO</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-using-histoner_js-and-histoner_histone-to-specify-desired-return-type" class="anchor" href="#using-histoner_js-and-histoner_histone-to-specify-desired-return-type" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using Histone.R_JS and Histone.R_HISTONE to specify desired return type</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// true</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">)</span> <span class="pl-k">instanceof</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// true</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">R_HISTONE</span><span class="pl-kos">)</span> <span class="pl-k">instanceof</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// true</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">R_JS</span><span class="pl-kos">)</span> <span class="pl-k">instanceof</span> <span class="pl-v">Array</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="user-content-omitting-optional-arguments" class="anchor" href="#omitting-optional-arguments" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Omitting optional arguments</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// no arguments but callback and return type</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">,</span> <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-s1">result</span> <span class="pl-k">instanceof</span> <span class="pl-v">Array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">R_JS</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// no arguments and callback, but with return type set</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">R_JS</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// one argument, return type set</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s">'join'</span><span class="pl-kos">,</span> <span class="pl-s">'.'</span><span class="pl-kos">,</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">R_JS</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// no return type, no arguments, but with callback set</span>
+<span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-en">invoke</span><span class="pl-kos">(</span><span class="pl-s">'string'</span><span class="pl-kos">,</span> <span class="pl-s">'split'</span><span class="pl-kos">,</span> <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">result</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">info</span><span class="pl-kos">(</span><span class="pl-s1">result</span> <span class="pl-k">instanceof</span> <span class="pl-v">Histone</span><span class="pl-kos">.</span><span class="pl-c1">Array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+
+            </div>
+
+            <div id="wiki-footer" class="mt-5 mb-0 wiki-footer gollum-markdown-content">
+              <div class="Box Box--condensed bg-gray box-shadow">
+                <div class="Box-body  markdown-body">
+                  <h3>
+<a id="user-content-more-documentation" class="anchor" href="#more-documentation" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>More documentation</h3>
+<ul>
+<li><a href="https://github.com/MegafonWebLab/histone-documentation">Histone documentation</a></li>
+<li><a href="https://github.com/MegafonWebLab/histone-documentation/wiki">Histone reference</a></li>
+<li><a href="https://github.com/MegafonWebLab/histone-javascript">JavaScript documentation</a></li>
+<li><a href="https://github.com/MegafonWebLab/histone-javascript/wiki">JavaScript reference</a></li>
+</ul>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+</div>
+    <div class="flex-shrink-0 col-12 col-md-3">
+              <div class="wiki-rightbar">
+          <div id="wiki-pages-box" class="mb-4 wiki-pages-box js-wiki-pages-box" role="navigation">
+            
+<div class="Box Box--condensed box-shadow">
+  <div class="Box-header js-wiki-toggle-collapse" style="cursor: pointer">
+    <h3 class="Box-title">
+      <svg class="octicon octicon-triangle-down js-wiki-sidebar-toggle-display d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z"></path></svg>
+      <svg class="octicon octicon-triangle-right js-wiki-sidebar-toggle-display" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.427 4.427l3.396 3.396a.25.25 0 010 .354l-3.396 3.396A.25.25 0 016 11.396V4.604a.25.25 0 01.427-.177z"></path></svg>
+      Pages <span title="30" class="Counter Counter--gray ">30</span>
+    </h3>
+  </div>
+  <div class="d-none js-wiki-sidebar-toggle-display">
+    <div class="filter-bar">
+      <input type="text" id="wiki-pages-filter" class="form-control input-sm input-block js-filterable-field" placeholder="Find a Page…" aria-label="Find a Page…" autocomplete="off">
+    </div>
+
+    <ul class="m-0 p-0 list-style-none" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki">Home</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Array">Histone.Array</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Base">Histone.Base</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Boolean">Histone.Boolean</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.clearCache">Histone.clearCache</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Date">Histone.Date</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Global">Histone.Global</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.invoke">Histone.invoke</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.loadJSON">Histone.loadJSON</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.loadText">Histone.loadText</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Macro">Histone.Macro</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Null">Histone.Null</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Number">Histone.Number</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.RegExp">Histone.RegExp</a></strong>
+        </li>
+        <li class="Box-row">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.register">Histone.register</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.require">Histone.require</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.setResourceLoader">Histone.setResourceLoader</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.String">Histone.String</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toBoolean">Histone.toBoolean</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toHistone">Histone.toHistone</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toJavaScript">Histone.toJavaScript</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toJSON">Histone.toJSON</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toNumber">Histone.toNumber</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.toString">Histone.toString</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.Undefined">Histone.Undefined</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Histone.unregister">Histone.unregister</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Template">Template</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Template.getAST">Template.getAST</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Template.getBaseURI">Template.getBaseURI</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages">
+          <strong><a class="d-block" href="https://github.com/MegafonWebLab/histone-javascript/wiki/Template.render">Template.render</a></strong>
+        </li>
+        <li class="Box-row wiki-more-pages-link">
+          <button type="button" class="f6 mx-auto btn-link muted-link js-wiki-more-pages-link">
+            Show 15 more pages…
+          </button>
+        </li>
+    </ul>
+  </div>
+</div>
+
+          </div>
+
+            <div class="gollum-markdown-content">
+              <div class="Box Box--condensed mb-4">
+                <div class="Box-body wiki-custom-sidebar markdown-body">
+                  <h4>
+<a id="user-content-histone" class="anchor" href="#histone" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="Home">Histone</a>
+</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.loadText">loadText</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.loadJSON">loadJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.require">require</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.register">register</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.unregister">unregister</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.invoke">invoke</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setCache<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.clearCache">clearCache</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setLanguage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.setResourceLoader">setResourceLoader</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toJSON">toJSON</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toString">toString</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toNumber">toNumber</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toBoolean">toBoolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toJavaScript">toJavaScript</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.toHistone">toHistone</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Base">Base</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Undefined">Undefined</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Null">Null</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Boolean">Boolean</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Number">Number</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.String">String</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.RegExp">RegExp</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Macro">Macro</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bind<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toJavaScript<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Array">Array</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isMap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isArray<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getLength<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getFirst<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getLast<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getValues<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getKeys<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toJavaScript<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Date">Date</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Histone.Global">Global</a></p>
+<h4>
+<a id="user-content-template" class="anchor" href="#template" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a href="Template">Template</a>
+</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Template.getBaseURI">getBaseURI</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Template.getAST">getAST</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Template.render">render</a></p>
+
+                </div>
+              </div>
+            </div>
+
+          <h5 class="mt-0 mb-2">Clone this wiki locally</h5>
+          <div class="width-full input-group">
+            <input id="wiki-clone-url" type="text" data-autoselect="" class="form-control input-sm text-small text-gray input-monospace" aria-label="Clone URL for this wiki" value="https://github.com/MegafonWebLab/histone-javascript.wiki.git" readonly="">
+            <span class="input-group-button">
+              <clipboard-copy for="wiki-clone-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button" tabindex="0" role="button">
+                <svg class="octicon octicon-clippy" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+              </clipboard-copy>
+            </span>
+          </div>
+        </div>
+
+</div></div>  </div>
+
+
+  </div>
