@@ -5,6 +5,7 @@
   "files": [
     "Histone.js"
   ],
+  "type": "module",
   "main": "Histone.js",
   "keywords": [
     "histone",
@@ -22,6 +23,13 @@
     "url": "https://github.com/angrycoding/jte.git"
   },
   "devDependencies": {
-    "regexp-lexer": "0.0.10"
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "colors": "^1.4.0",
+    "fs-extra": "^11.3.1",
+    "minimist": "^1.2.8",
+    "regexp-lexer": "0.0.10",
+    "rollup": "^4.50.0",
+    "terser": "^5.44.0"
   }
 }

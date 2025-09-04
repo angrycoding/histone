@@ -1,3 +1,4 @@
 node_modules/
 /Histone.js
 package-lock.json
+yarn.lock
