@@ -1,5 +1,5 @@
-var Utils = require('../Utils'),
-	Constants = require('../Constants');
+import Utils from '../Utils.js';
+import Constants from '../Constants.js';
 
 function isPrimitiveVal(value) {
 	return (
@@ -104,4 +104,4 @@ Context.prototype.scopeExit = function() {
 	this.indexChain.shift();
 };
 
-module.exports = Context;
+export default Context;

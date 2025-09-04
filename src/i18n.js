@@ -1,5 +1,7 @@
-var Utils = require('./Utils'),
-	Constants = require('./Constants'),
+import Utils from './Utils.js';
+import Constants from './Constants.js';
+
+var
 	languages = Constants.LANGUAGES,
 	language = Constants.LANGUAGE;
 
@@ -33,4 +35,4 @@ i18n.$setLanguage = function(lang) {
 	}
 };
 
-module.exports = i18n;
+export default i18n;

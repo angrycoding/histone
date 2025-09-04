@@ -1,4 +1,4 @@
-module.exports = (Constants) => ({
+export default (Constants) => ({
 	[Constants.DATE_FORMAT]: 'WW, MM/DD/YYYY, h:mm:ss A',
 	[Constants.WEEK_DAYS]: [
 		['Mo', 'Monday'],

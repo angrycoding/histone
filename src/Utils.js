@@ -350,7 +350,7 @@ function dateOffset(date, offset) {
 
 
 
-module.exports = {
+export default {
 	$str2num: str2num,
 	$for: forAsync,
 	$escapeRegExp: escapeRegExp,

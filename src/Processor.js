@@ -1,6 +1,8 @@
-var RTTI = require('./RTTI'),
-	Utils = require('./Utils'),
-	Constants = require('./Constants'),
+import RTTI from './RTTI.js';
+import Utils from './Utils.js';
+import Constants from './Constants.js';
+
+const
 	HistoneDate = RTTI.$Date,
 	HistoneArray = RTTI.$Array,
 	HistoneMacro = RTTI.$Macro;
@@ -564,4 +566,4 @@ Processor.prototype.process = function(node, ret) {
 	processNode(node, this, ret);
 };
 
-module.exports = Processor;
+export default Processor;

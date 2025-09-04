@@ -1,6 +1,6 @@
-var RTTI = require('../RTTI'),
-	Utils = require('../Utils'),
-	Constants = require('../Constants');
+import RTTI from '../RTTI.js';
+import Utils from '../Utils.js';
+import Constants from '../Constants.js';
 
 function removeOutputNodes(parent) {
 	var c, child, length = parent.length - 1;
@@ -319,4 +319,4 @@ Optimize.compressNodeLists = compressNodeLists;
 
 
 
-module.exports = Optimize;
+export default Optimize;

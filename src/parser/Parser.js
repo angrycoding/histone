@@ -1,9 +1,11 @@
-var Utils = require('../Utils'),
-	Tokens = require('./Tokens'),
-	Context = require('./Context'),
-	Tokenizer = require('regexp-lexer'),
-	Optimizer = require('./Optimizer'),
-	Constants = require('../Constants'),
+import Utils from '../Utils.js';
+import Tokens from './Tokens.js';
+import Context from './Context.js';
+import Tokenizer from 'regexp-lexer';
+import Optimizer from './Optimizer.js';
+import Constants from '../Constants.js';
+
+var
 	isDevVersion = (Constants.VERSION === 'dev'),
 	ctx, tokenizer, T_NOP = -1, T_BREAK = -2, T_ARRAY = -3,
 	// used to validate numeric array keys
@@ -820,7 +822,7 @@ function nodeListStatement(lex) {
 	return Optimizer.compressNodeLists(result);
 }
 
-module.exports = function(template, baseURI) {
+export default function(template, baseURI) {
 	var lex = getTokenizer().init(template);
 	ctx = new Context(baseURI);
 	template = nodeListStatement(lex);

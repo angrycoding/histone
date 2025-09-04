@@ -1,6 +1,5 @@
-var Utils = require('../Utils'),
-	Constants = require('../Constants'),
-	HistoneArray = require('./Array');
+import Utils from '../Utils.js';
+import HistoneArray from './Array.js';
 
 function HistoneDate(offset) {
 
@@ -40,4 +39,4 @@ HistoneDate.prototype.toJavaScript = function() {
 
 };
 
-module.exports = HistoneDate;
+export default HistoneDate;

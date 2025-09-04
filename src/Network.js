@@ -1,8 +1,10 @@
-var Utils = require('./Utils'),
-	RTTI = require('./RTTI'),
-	Parser = require('./Parser'),
-	Processor = require('./Processor'),
-	Constants = require('./Constants'),
+import Utils from './Utils.js';
+import RTTI from './RTTI.js';
+import Parser from './Parser.js';
+import Processor from './Processor.js';
+import Constants from './Constants.js';
+
+var
 	RTTI_R = Constants.RTTI_R,
 
 	RTTI_R_JS = Constants.RTTI_R_JS,
@@ -294,7 +296,7 @@ function loadTemplate(requestURI, ret) {
 }
 
 
-module.exports = {
+export default {
 	$setCache: setCache,
 	$clearCache: clearCache,
 	$loadText: loadText,

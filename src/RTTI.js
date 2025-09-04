@@ -1,12 +1,14 @@
-var Utils = require('./Utils'),
-	Constants = require('./Constants'),
-	HistoneBase = require('./classes/Base'),
-	HistoneUndefined = require('./classes/Undefined'),
-	HistoneNull = require('./classes/Null'),
-	HistoneMacro = require('./classes/Macro'),
-	HistoneArray = require('./classes/Array'),
-	HistoneGlobal = require('./classes/Global'),
-	HistoneDate = require('./classes/Date'),
+import Utils from './Utils.js';
+import Constants from './Constants.js';
+import HistoneBase from './classes/Base.js';
+import HistoneUndefined from './classes/Undefined.js';
+import HistoneNull from './classes/Null.js';
+import HistoneMacro from './classes/Macro.js';
+import HistoneArray from './classes/Array.js';
+import HistoneGlobal from './classes/Global.js';
+import HistoneDate from './classes/Date.js';
+
+const
 	RTTI_R = Constants.RTTI_R,
 	RTTI_R_JS = Constants.RTTI_R_JS,
 	RTTI_R_SELF = Constants.RTTI_R_SELF,
@@ -218,7 +220,7 @@ function toHistone(value) {
 	return result;
 }
 
-module.exports = {
+export default {
 
 	$isValidState: isValidState,
 	$register: register,

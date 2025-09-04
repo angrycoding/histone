@@ -1,5 +1,7 @@
-var RTTI = require('../RTTI'),
-	Constants = require('../Constants'),
+import RTTI from '../RTTI.js';
+import Constants from '../Constants.js';
+
+const
 	BasePrototype = RTTI.$Base.prototype,
 	BooleanPrototype = RTTI.$Boolean.prototype;
 

@@ -1,6 +1,7 @@
-var RTTI = require('../RTTI'),
-	Utils = require('../Utils'),
-	Constants = require('../Constants'),
+import RTTI from '../RTTI.js';
+import Constants from '../Constants.js';
+
+const
 	BasePrototype = RTTI.$Base.prototype,
 	NumberPrototype = RTTI.$Number.prototype;
 

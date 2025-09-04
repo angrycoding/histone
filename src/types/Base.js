@@ -1,6 +1,8 @@
-var RTTI = require('../RTTI'),
-	Utils = require('../Utils'),
-	Constants = require('../Constants'),
+import RTTI from '../RTTI.js';
+import Utils from '../Utils.js';
+import Constants from '../Constants.js';
+
+const
 	HistoneMacro = RTTI.$Macro,
 	BasePrototype = RTTI.$Base.prototype,
 	validMemberName = /^[_$a-zA-Z][_$a-zA-Z0-9]*$/;

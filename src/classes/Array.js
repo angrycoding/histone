@@ -1,4 +1,4 @@
-var Utils = require('../Utils');
+import Utils from "../Utils.js";
 
 function HistoneArray() {
 	this._nextIntKey = 0;
@@ -238,4 +238,4 @@ HistoneArray.prototype.getKeys = function() {
 };
 
 
-module.exports = HistoneArray;
+export default HistoneArray;

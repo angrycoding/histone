@@ -1,10 +1,11 @@
-var i18n = require('../i18n'),
-	RTTI = require('../RTTI'),
-	Utils = require('../Utils'),
-	Parser = require('../Parser'),
-	Network = require('../Network'),
-	Processor = require('../Processor'),
-	Constants = require('../Constants'),
+import i18n from '../i18n.js';
+import RTTI from '../RTTI.js';
+import Utils from '../Utils.js';
+import Network from '../Network.js';
+import Processor from '../Processor.js';
+import Constants from '../Constants.js';
+
+const
 	HistoneArray = RTTI.$Array,
 	HistoneMacro = RTTI.$Macro,
 	GlobalPrototype = RTTI.$Global.prototype;

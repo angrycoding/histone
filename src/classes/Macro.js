@@ -1,4 +1,4 @@
-var Utils = require('../Utils');
+import Utils from "../Utils.js";
 
 function HistoneMacro(params, body, scope) {
 	this.params = params;
@@ -96,4 +96,4 @@ HistoneMacro.prototype.call = function(args, scope, ret, mergeSelf) {
 };
 
 
-module.exports = HistoneMacro;
+export default HistoneMacro;

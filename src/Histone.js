@@ -1,10 +1,23 @@
-var i18n = require('./i18n'),
-	RTTI = require('./RTTI'),
-	Utils = require('./Utils'),
-	Parser = require('./Parser'),
-	Network = require('./Network'),
-	Template = require('./Template'),
-	Constants = require('./Constants');
+import i18n from './i18n.js';
+import RTTI from './RTTI.js';
+import Utils from './Utils.js';
+import Parser from './Parser.js';
+import Network from './Network.js';
+import Template from './Template.js';
+import Constants from './Constants.js';
+
+import './types/Base.js';
+import './types/Undefined.js';
+import './types/Null.js';
+import './types/Boolean.js';
+import './types/Number.js';
+import './types/String.js';
+import './types/RegExp.js';
+import './types/Array.js';
+import './types/Macro.js';
+import './types/Date.js';
+import './types/Global.js';
+
 
 function getBaseURI() {
 	try {
@@ -98,16 +111,5 @@ Histone.require = Network.$require;
 /** @expose */
 Histone.setResourceLoader = Network.$setResourceLoader;
 
-require('./types/Base');
-require('./types/Undefined');
-require('./types/Null');
-require('./types/Boolean');
-require('./types/Number');
-require('./types/String');
-require('./types/RegExp');
-require('./types/Array');
-require('./types/Macro');
-require('./types/Date');
-require('./types/Global');
 
-module.exports = Histone;
+export default Histone;

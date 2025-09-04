@@ -1,7 +1,9 @@
-var Constants = require('../Constants'),
-	RTTI = require('../RTTI'),
-	i18n = require('../i18n'),
-	Utils = require('../Utils'),
+import Constants from '../Constants.js';
+import RTTI from '../RTTI.js';
+import i18n from '../i18n.js';
+import Utils from '../Utils.js';
+
+const
 	HistoneDate = RTTI.$Date,
 	HistoneArray = RTTI.$Array,
 	BasePrototype = RTTI.$Base.prototype,

@@ -1,7 +1,8 @@
+import RTTI from './RTTI.js';
+import Constants from './Constants.js';
+import Processor from './Processor.js';
+
 const
-	RTTI = require('./RTTI'),
-	Constants = require('./Constants'),
-	Processor = require('./Processor'),
 	RTTI_R = Constants.RTTI_R,
 	RTTI_R_JS = Constants.RTTI_R_JS,
 	RTTI_R_STRING = Constants.RTTI_R_STRING,
@@ -50,4 +51,4 @@ Template.prototype.render = function() {
 	return ret;
 };
 
-module.exports = Template;
+export default Template;

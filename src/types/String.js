@@ -1,8 +1,10 @@
-var RTTI = require('../RTTI'),
-	Utils = require('../Utils'),
-	Parser = require('../Parser'),
-	Processor = require('../Processor'),
-	Constants = require('../Constants'),
+import RTTI from '../RTTI.js';
+import Utils from '../Utils.js';
+import Parser from '../Parser.js';
+import Processor from '../Processor.js';
+import Constants from '../Constants.js';
+
+const 
 	HistoneMacro = RTTI.$Macro,
 	BasePrototype = RTTI.$Base.prototype,
 	StringPrototype = RTTI.$String.prototype,

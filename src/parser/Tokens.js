@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	$UNDEFINED: 0,
 	$PROP: 1,
 	$STATEMENT: 2,

@@ -1,5 +1,5 @@
-var HistoneArray = require('./Array'),
-	Constants = require('../Constants');
+import HistoneArray from './Array.js';
+import Constants from '../Constants.js';
 
 function HistoneGlobal() {
 	HistoneArray.apply(this, arguments);
@@ -14,4 +14,4 @@ HistoneGlobal.prototype.constructor = HistoneGlobal;
 
 
 
-module.exports = HistoneGlobal;
+export default HistoneGlobal;
