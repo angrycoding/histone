@@ -1,5 +1,4 @@
 var Utils = require('./Utils'),
-	ES5Map = require('./ES5Map'),
 	Constants = require('./Constants'),
 	HistoneBase = require('./classes/Base'),
 	HistoneUndefined = require('./classes/Undefined'),
@@ -13,7 +12,7 @@ var Utils = require('./Utils'),
 	RTTI_R_SELF = Constants.RTTI_R_SELF,
 	PROCESSOR = Constants.PROCESSOR;
 
-var registry = new ES5Map();
+var registry = new Map();
 registry.set(HistoneBase.prototype, {});
 registry.set(HistoneUndefined.prototype, {});
 registry.set(HistoneNull.prototype, {});
@@ -25,6 +24,7 @@ registry.set(HistoneMacro.prototype, {});
 registry.set(HistoneArray.prototype, {});
 registry.set(HistoneDate.prototype, {});
 registry.set(HistoneGlobal.prototype, {});
+
 
 
 function getArgumentOrder(argument) {

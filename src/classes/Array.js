@@ -1,9 +1,8 @@
-var Utils = require('../Utils'),
-	ES5Map = require('../ES5Map');
+var Utils = require('../Utils');
 
 function HistoneArray() {
 	this._nextIntKey = 0;
-	this._map = new ES5Map();
+	this._map = new Map();
 }
 
 /** @expose */
@@ -84,8 +83,8 @@ HistoneArray.prototype.every = function(retn, retf) {
 HistoneArray.prototype.clone = function() {
 
 	var value,
-		keys = this._map.keys(),
-		values = this._map.values(),
+		keys = [...this._map.keys()],
+		values = [...this._map.values()],
 		result = new HistoneArray();
 
 	while (keys.length) {
@@ -218,24 +217,24 @@ HistoneArray.prototype.toJavaScript = function(toJavaScript) {
 
 /** @expose */
 HistoneArray.prototype.getFirst = function() {
-	var values = this._map.values();
+	var values = [...this._map.values()];
 	return values[0];
 };
 
 /** @expose */
 HistoneArray.prototype.getLast = function() {
-	var values = this._map.values();
+	var values = [...this._map.values()];
 	return values[values.length - 1];
 };
 
 /** @expose */
 HistoneArray.prototype.getValues = function() {
-	return this._map.values();
+	return [...this._map.values()];
 };
 
 /** @expose */
 HistoneArray.prototype.getKeys = function() {
-	return this._map.keys();
+	return [...this._map.keys()];
 };
 
 
