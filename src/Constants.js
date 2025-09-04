@@ -1,21 +1,25 @@
+import ru from '../i18n/ru.js';
+import en from '../i18n/en.js';
+
 var RTTI_R = function(){};
 var RTTI_R_JS = function(){};
 var RTTI_R_HISTONE = function(){};
 var RTTI_R_STRING = function(){};
 var I18N = {WEEK_DAYS: 1, MONTH_NAMES: 2, DATE_FORMAT: 3};
 
+
 RTTI_R_JS.prototype = Object.create(RTTI_R.prototype);
 RTTI_R_HISTONE.prototype = Object.create(RTTI_R.prototype);
 RTTI_R_STRING.prototype = Object.create(RTTI_R.prototype);
 
-module.exports = {
+export default {
 
 	VERSION: /*{{if true}}*//*{{this.VERSION->toJSON}}*//*{{else}}*/'dev'/*{{/if}}*/,
 	HAS_PARSER: /*{{if true}}*//*{{this.HAS_PARSER->toJSON}}*//*{{else}}*/true/*{{/if}}*/,
 	LANGUAGE: /*{{if true}}*//*{{this.LANGUAGE->toJSON}}*//*{{else}}*/'ru'/*{{/if}}*/,
 	LANGUAGES: /*{{if true}}*//*{{this.LANGUAGES->toJSON}}*//*{{else}}*/{
-		ru: require('../i18n/ru')(I18N),
-		en: require('../i18n/en')(I18N)
+		ru: ru(I18N),
+		en: en(I18N)
 	}/*{{/if}}*/,
 
 	WEEK_DAYS: I18N.WEEK_DAYS,
