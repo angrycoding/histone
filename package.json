@@ -1,6 +1,6 @@
 {
-  "name": "jte",
-  "version": "4.0.1",
+  "name": "histone",
+  "version": "4.0.0",
   "description": "Histone template engine",
   "files": [
     "Histone.js"
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angrycoding/jte.git"
+    "url": "https://github.com/angrycoding/histone.git"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
