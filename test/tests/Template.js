@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	(Histone, ret) => ret(typeof Histone().render === 'function'),
 	(Histone, ret) => ret(typeof Histone().getBaseURI === 'function'),

@@ -1,27 +1,27 @@
-var FS = require('fs'),
-	Colors = require('colors'),
-	Path = require('path'),
-	Minimist = require('minimist'),
-	Constants = require('../src/Constants'),
+import FS from 'fs';
+import URL from 'url';
+import Colors from 'colors';
+import Path from 'path';
+import Minimist from 'minimist';
+import Constants from '../src/Constants.js';
+
+const __filename = URL.fileURLToPath(import.meta.url);
+const __dirname = Path.dirname(__filename);
+
+
+const
 	commandLine = Minimist(process.argv.slice(2)),
 	histonePath = (
 		typeof commandLine.histone === 'string' ?
 		Path.resolve(process.cwd(), commandLine.histone) :
 		Path.resolve(__dirname, '../src/Histone')
 	);
+	
 
 var message, exitCode = 0;
 var counter = 0;
 
-function getHistone() {
-	var cache = require.cache;
-	for (var key in cache) {
-		// if (cache.hasOwnProperty(key)) {
-			delete cache[key];
-		// }
-	}
-	return require(histonePath);
-}
+const getHistone = () => import(`${histonePath}?r=${Math.random()}`)
 
 function forAsync(iterator, begin, end, step) {
 
@@ -102,62 +102,70 @@ function printResult(success) {
 // ordinary exit will result with error
 process.on('beforeExit', printResult);
 
-getTestSuite(function(testSuitePath, ret) {
+getTestSuite(async(testSuitePath, ret) => {
 
 	console.info('');
 	console.info('[ SUITE ]', Colors.underline(testSuitePath));
 	console.info('');
 
-	var testSuite = require(testSuitePath);
+	import(testSuitePath).then(({ default: testSuite }) => {
 
-	if (!(testSuite instanceof Array)) testSuite = [testSuite];
+		if (!(testSuite instanceof Array)) testSuite = [testSuite];
 
-	// if (testSuite instanceof Function) testSuite = [testSuite];
-	// if (!(testSuite instanceof Array)) nextTestSuite();
-	asyncForEach(testSuite, function(testCase, nextTestCase) {
+		// if (testSuite instanceof Function) testSuite = [testSuite];
+		// if (!(testSuite instanceof Array)) nextTestSuite();
+		asyncForEach(testSuite, function(testCase, nextTestCase) {
 
-		counter++;
+			counter++;
 
-		if (typeof testCase === 'string') {
-			message = testCase;
-			try {
-				getHistone()(testCase).render(function(result) {
-					printResult(!!result);
+			if (typeof testCase === 'string') {
+				message = testCase;
+				try {
+
+
+					getHistone().then(({ default: Histone }) => {
+						Histone(testCase).render(function(result) {
+							printResult(!!result);
+							nextTestCase();
+						});
+					});
+				}
+
+				catch (exception) {
+					printResult();
 					nextTestCase();
-				});
+				}
 			}
 
-			catch (exception) {
-				printResult();
-				nextTestCase();
-			}
-		}
+
+			else if (testCase instanceof Function) {
+				message = testCase.toString();
 
 
-		else if (testCase instanceof Function) {
-			message = testCase.toString();
+				try {
+					getHistone().then(({ default: Histone }) => {
 
+						testCase(Histone, function(result) {
+							// var result = Array.prototype.every.call(arguments, result => !!result);
+							printResult(!!result);
+							nextTestCase();
+						}, histonePath, Constants);
+					});
+				}
 
-			try {
-				testCase(getHistone(), function(result) {
-					// var result = Array.prototype.every.call(arguments, result => !!result);
-					printResult(!!result);
+				catch (exception) {
+					printResult();
 					nextTestCase();
-				}, histonePath, Constants);
+				}
 			}
 
-			catch (exception) {
-				printResult();
-				nextTestCase();
-			}
-		}
-
-		else nextTestCase();
+			else nextTestCase();
 
 
 
-	}, ret);
+		}, ret);
 
+	});
 
 }, function() {
 	console.info('--------------------------------------------------------');

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	(Histone, ret) => ret(typeof Histone === 'function'),
 	(Histone, ret) => ret(Histone.length === 2),

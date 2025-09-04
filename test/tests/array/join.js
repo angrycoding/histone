@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->join = ""}}`,
 	`{{return [1, 2, 3]->join = "123"}}`,
 	`{{return [foo:'bar',baz:'boo']->join = "barboo"}}`,

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->isArray->toJSON = "true"}}`,
 	`{{return [1, 2, 3]->isArray->toJSON = "true"}}`,
 	`{{return [foo:1, x:2, y:3]->isArray->toJSON = "true"}}`,

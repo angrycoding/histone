@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->isArray->toString = "true"}}`,
 	`{{return undefined->toArray->length = 1}}`,
 	`{{return null->toArray->length = 1}}`,

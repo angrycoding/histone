@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	(Histone, ret) => Histone(`{{return range(1, 4)->join('.') = '1.2.3.4'}}`).render(ret),
 

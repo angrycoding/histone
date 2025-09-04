@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	(Histone, ret) => ret(Histone.toString() === ''),
 	(Histone, ret) => ret(Histone.toString(undefined) === ''),

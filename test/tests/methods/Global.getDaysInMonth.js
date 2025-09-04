@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return getDaysInMonth(0, 2) = 29}}',
 	'{{return getDaysInMonth(1, 2) = 28}}',
 	'{{return getDaysInMonth(84, 2) = 29}}',

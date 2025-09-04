@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	(Histone, ret) => ret(Histone.toJavaScript() === undefined),
 	(Histone, ret) => ret(Histone.toJavaScript(undefined) === undefined),

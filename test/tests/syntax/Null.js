@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	'{{return null = null}}',
 	'{{return null->isNull}}',

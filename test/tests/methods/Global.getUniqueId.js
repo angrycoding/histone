@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return getUniqueId->isString}}',
 	'{{return getUniqueId->length = 36}}',
 	'{{return getUniqueId != getUniqueId}}',

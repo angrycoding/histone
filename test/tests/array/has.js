@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->has->toJSON = 'false'}}`,
 	`{{return [1,2,3]->has->toJSON = 'false'}}`,
 	`{{return [foo: 111]->has->toJSON = 'false'}}`,

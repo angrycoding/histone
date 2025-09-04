@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	(Histone, ret, path, Constants) => {
 		ret(
 			JSON.stringify(Histone(`{{10}}`).getAST()) === 

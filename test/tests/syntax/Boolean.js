@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	'{{return true = true}}',
 	'{{return false = false}}',

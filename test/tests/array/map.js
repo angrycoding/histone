@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return []->map->toJSON = "[]"}}',
 	'{{return []->map()->toJSON = "[]"}}',
 	`{{return [1, 2, 3, 4, 5]->map[0]->isUndefined->toString = "true"}}`,

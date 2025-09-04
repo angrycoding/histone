@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->toString = ""}}`,
 	`{{return [1, 2, 3]->toString = "1 2 3"}}`,
 	`{{return [foo:1, bar:2, baz:3]->toString = "1 2 3"}}`,

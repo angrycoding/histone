@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	(Histone, ret, path, Constants) => {
 		try { Histone(`{{0xG}}`) }
 		catch (e) { return ret(true); }

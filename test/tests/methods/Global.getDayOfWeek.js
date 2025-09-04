@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return getDayOfWeek->isUndefined}}',
 	'{{return getDayOfWeek()->isUndefined}}',
 	'{{return getDayOfWeek(2016)->isUndefined}}',

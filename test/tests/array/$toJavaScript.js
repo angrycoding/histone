@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	(Histone, ret) => {
 		Histone('{{return []}}').render(function(result) {
 			ret(result instanceof Array && result.length === 0);

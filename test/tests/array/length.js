@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return []->length = 0}}',
 	'{{return [1,2,3]->length = 3}}',
 	'{{return ["foo": "bar"]->length = 1}}',

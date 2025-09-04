@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->find->isUndefined->toString = "true"}}`,
 	`{{return [1, 2, 3, 4]->find->isUndefined->toString = "true"}}`,
 	`{{return [foo:1, bar:2, x:3, y:4]->find->isUndefined->toString = "true"}}`,

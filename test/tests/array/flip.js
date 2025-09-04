@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->flip->toJSON = "[]"}}`,
 	`{{return [1]->flip->toJSON = '{"1":"0"}'}}`,
 	`{{return [foo:'bar']->flip->toJSON = '{"bar":"foo"}'}}`,

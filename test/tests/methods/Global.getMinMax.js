@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return getMin->isUndefined}}',
 	'{{return getMin("foo", "bar")->isUndefined}}',
 	'{{return getMin("foo", 900, "bar")->toJSON = "900"}}',

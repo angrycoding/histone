@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->shuffle->toJSON = "[]"}}`,
 	`{{return [1]->shuffle->toJSON = "[1]"}}`,
 	`{{return range(5)->shuffle->toJSON != range(5)->toJSON}}`,

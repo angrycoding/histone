@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return [][0]->isUndefined->toJSON = "true"}}',
 	(Histone, ret) => {
 		try { Histone('{{[0, 1, 2, 3][]}}') }

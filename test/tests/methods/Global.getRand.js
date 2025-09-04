@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return getRand->isNumber}}',
 	'{{return getRand != getRand}}',
 	'{{return range(100)->map(=> getRand(UNDEFINED, 0))->every(i => i = 0)}}',

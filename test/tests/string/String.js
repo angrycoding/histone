@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return undefined->isString->toString = "false"}}',
 	'{{return null->isString->toString = "false"}}',
 	'{{return true->isString->toString = "false"}}',

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->set->toJSON = "[]"}}`,
 	`{{return []->set('foo', 'bar')->toJSON = '{"bar":"foo"}'}}`,
 	`{{return []->set('foo', 'bar')->set('y', 'x')->toJSON = '{"bar":"foo","x":"y"}'}}`,

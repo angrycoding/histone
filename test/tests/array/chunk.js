@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->chunk->toJSON = "[]"}}`,
 	`{{return range(10)->chunk->toJSON = "[[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]]"}}`,
 	`{{return range(10)->chunk(1)->toJSON = "[[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]]"}}`,

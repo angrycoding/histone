@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->slice->toJSON = "[]"}}`,
 	`{{return []->slice(0)->toJSON = "[]"}}`,
 	`{{return []->slice(100)->toJSON = "[]"}}`,

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	'{{macro foo}}{{/macro}}{{return foo->isMacro}}',
 	'{{var foo ==> ""}}{{return foo->isMacro}}',

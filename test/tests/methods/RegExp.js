@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->isRegExp->toString = "false"}}`,
 	`{{return undefined->isRegExp->toString = "false"}}`,
 	`{{return null->isRegExp->toString = "false"}}`,

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->reduce->isUndefined->toString = "true"}}`,
 	`{{return [1, 2, 3, 4]->reduce((accumulator, currentValue) => accumulator + currentValue)->toJSON = 10}}`,
 	`{{return [1, 2, 3, 4]->reduce((accumulator, currentValue) => accumulator + currentValue, 5)->toJSON = 15}}`,

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return []->some->toString = "false"}}',
 	'{{return []->some()->toString = "false"}}',
 	'{{return [1, 2, 3, 4, 5]->some->toString = "false"}}',

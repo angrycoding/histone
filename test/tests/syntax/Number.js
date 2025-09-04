@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 
 	'{{return 0->isNumber}}',
 	'{{return 10->isNumber}}',

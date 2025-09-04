@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->last->isUndefined->toString = "true"}}`,
 	`{{return [1]->last->toJSON = '1'}}`,
 	`{{return [0, 1]->last->toJSON = '1'}}`,

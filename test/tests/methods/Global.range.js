@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return range->toJSON = "[]"}}',
 	'{{return range()->toJSON = "[]"}}',
 	'{{return range("FOO")->toJSON = "[]"}}',

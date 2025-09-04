@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	`{{return []->sort->toJSON = "[]"}}`,
 	`{{return ['a', 'b', 'c', 'd', 'e']->sort->toJSON = '["a","b","c","d","e"]'}}`,
 	`{{return ['a', 'b', 'c', 'd', 'e']->reverse->sort->toJSON = '["a","b","c","d","e"]'}}`,

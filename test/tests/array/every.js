@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	'{{return []->every->toString = "false"}}',
 	'{{return []->every()->toString = "false"}}',
 	'{{return [1, 2, 3, 4, 5]->every->toString = "false"}}',
